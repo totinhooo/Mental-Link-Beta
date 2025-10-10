@@ -1,4 +1,5 @@
-# 🧠 Mental Link Aplicacion Beta
+# 🧠 Mental Link Aplicación en estado Beta
+Destinada a #solvefortomorrow / Samsung 
 
 [![Estado del Proyecto](https://img.shields.io/badge/Estado-Beta%2C%20Primera%20Versión-orange.svg)](https://github.com/tu_usuario/mentallink-rn)
 [![Tech Stack](https://img.shields.io/badge/Stack-React%20Web%20|%20Expo%20Migration-FFC300)](https://expo.dev/)
