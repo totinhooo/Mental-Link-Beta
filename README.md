@@ -1,21 +1,3 @@
-# Mental Link Beta (React + Vite)
-
-This repository is a React web app exported from Figma and adapted to run with Vite and TypeScript.
-
-Quick commands (Windows PowerShell):
-
-- Install dependencies: npm install
-- Run dev server: npm run dev
-- Build for production: npm run build
-- Preview production build locally: npm run start
-
-Vercel deploy
-- This repo includes `vercel.json` configured to use the static-build with output directory `build`.
-- On Vercel, set the build command to `npm run build` and the output directory to `build` (should be auto-detected).
-
-Notes
-- Many import specifiers exported from Figma included package versions. Those were normalized and TypeScript configuration + asset typings were added.
-- If you want stricter TypeScript checks, enable `strict` in `tsconfig.json` and fix any reported issues.
 # 🧠 Mental Link Aplicación en estado Beta
 Destinada a #solvefortomorrow / Samsung 
 
