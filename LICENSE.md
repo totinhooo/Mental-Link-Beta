@@ -1,12 +1,24 @@
-# Licencia de Propiedad Intelectual
+MIT License
 
-Este proyecto, **Mental Link Mobile Prototype**, y todo su código fuente, diseño, activos y documentación son propiedad intelectual exclusiva del equipo de desarrollo, conformado por alumnos de la **E.S.E.T.P N°724 de Trelew, Chubut, Argentina**.
+Copyright (c) [2025] [Mental Link]
 
-Los derechos de propiedad intelectual, uso, modificación y distribución están reservados por el equipo de **Mental Link**.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Cualquier uso, copia o distribución sin el permiso explícito y por escrito de los autores está estrictamente prohibido.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
----
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 **Contacto:**
 * Correo electrónico: mentallinkoficial@gmail.com
