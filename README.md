@@ -91,7 +91,5 @@ Para correr este proyecto de manera local, sigue los siguientes pasos:
 
 ---
 
-## ⚖️ Licencia
 
-Este proyecto está bajo la Licencia **Bajo Propiedad de Mental Link**.
   
