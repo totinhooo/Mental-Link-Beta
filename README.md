@@ -1,8 +1,8 @@
 # 🧠 Mental Link Mobile Prototype
 
 [![Estado del Proyecto](https://img.shields.io/badge/Estado-Beta%2C%20Primera%20Versión-orange.svg)](https://github.com/tu_usuario/mentallink-rn)
-[![Tech Stack](https://img.shields.io/badge/Stack-React%20Native%20|%20Expo-61DAFB)](https://expo.dev/)
-[![Licencia](https://img.shields.io/badge/License-Propiedad%20Mental%20Link-lightgrey.svg)](LICENSE.md)
+[![Tech Stack](https://img.shields.io/badge/Stack-React%20Web%20|%20Expo%20Migration-FFC300)](https://expo.dev/)
+[![Licencia](https://img.shields.com/badge/License-Propiedad%20Mental%20Link-lightgrey.svg)](LICENSE.md)
 
 ## 📌 Descripción General
 
@@ -37,9 +37,10 @@ El prototipo combina un chatbot de apoyo empático, registro de emociones, ejerc
 
 ## 🛠️ Tecnologías Utilizadas
 
-Este prototipo fue desarrollado con un enfoque en la estabilidad y la estética nativa.
+Este prototipo fue inicialmente desarrollado en **React Web** y está siendo migrado a **React Native (Expo)** para su despliegue móvil.
 
-* **React Native / Expo:** Framework para el desarrollo móvil multiplataforma.
+* **React Web (Original):** Framework inicial de desarrollo.
+* **React Native / Expo:** Objetivo de la migración para desarrollo móvil multiplataforma.
 * **NativeWind / Tailwind CSS:** Estilizado rápido y responsivo, manteniendo la consistencia visual del diseño de Figma.
 * **React Navigation:** Manejo de la navegación entre pantallas (Stack y Bottom Tabs).
 * **Firebase:** Configurado para la futura implementación de servicios como **Autenticación** y **Base de Datos (Firestore)**.
@@ -82,9 +83,10 @@ Para correr este proyecto de manera local, sigue los siguientes pasos:
 
 **Proyecto desarrollado por alumnos de la E.S.E.T.P N°724 (Trelew, Chubut, Argentina).**
 
+* **Equipo:** Mental Link
+* **Subido por el miembro:** Tobias (@totinhooo)
 * **Instagram:** [@mentallink.\_](https://www.instagram.com/mentallink._)
 * **Correo electrónico:** mentallinkoficial@gmail.com
-* **[Tu Nombre/Nombre del Equipo]** - [@TuUsuarioDeGitHub]
 
 ---
 
