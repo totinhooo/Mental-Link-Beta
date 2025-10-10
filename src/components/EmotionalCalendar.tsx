@@ -12,7 +12,7 @@ interface DayData {
   notes?: string;
 }
 
-export function EmotionalCalendar() {
+export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [dailyData, setDailyData] = useState<DayData[]>([]);
   const [selectedDay, setSelectedDay] = useState<DayData | null>(null);

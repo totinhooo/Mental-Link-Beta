@@ -16,7 +16,7 @@ interface DiagnosisData {
   date: string;
 }
 
-export function DailyDiagnosis() {
+export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const [currentDiagnosis, setCurrentDiagnosis] = useState<DiagnosisData>({
     mood: 5,
     energy: 5,

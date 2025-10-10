@@ -48,7 +48,7 @@ const urgencyLevels = [
   { label: "Es urgente", value: "high", color: "bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200" }
 ];
 
-export function TrustedAdultConnection() {
+export function TrustedAdultConnection({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const [selectedAdult, setSelectedAdult] = useState<TrustedAdult | null>(null);
   const [message, setMessage] = useState('');
   const [urgency, setUrgency] = useState('low');

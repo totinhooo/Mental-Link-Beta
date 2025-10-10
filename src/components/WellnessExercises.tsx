@@ -81,7 +81,7 @@ const exercises: Exercise[] = [
   }
 ];
 
-export function WellnessExercises() {
+export function WellnessExercises({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const [selectedExercise, setSelectedExercise] = useState<Exercise | null>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [isStarted, setIsStarted] = useState(false);

@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Instagram, Mail, MapPin, School, Users, Heart } from 'lucide-react';
 
-export function TeamContact() {
+export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   return (
     <div className="space-y-6">
       {/* Header */}

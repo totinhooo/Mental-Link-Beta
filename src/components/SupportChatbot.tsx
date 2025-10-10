@@ -4,20 +4,23 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Avatar } from './ui/avatar';
 import { Send } from 'lucide-react';
-import { toast } from 'sonner@2.0.3';
-
-interface Message {
-  id: number;
-  text: string;
-  isBot: boolean;
-  timestamp: Date;
-  options?: MessageOption[];
-}
+import { toast } from 'sonner';
 
 interface MessageOption {
   id: string;
   label: string;
   action: string;
+}
+
+interface Message {
+  id: number;
+  text?: string;
+  isBot: boolean;
+  timestamp: Date;
+  options?: MessageOption[];
+  requiresUserData?: boolean;
+  requiresConsent?: boolean;
+  followUp?: boolean;
 }
 
 interface ConversationContext {
@@ -34,6 +37,23 @@ interface UserData {
   emergencyContactRelation: string;
   emergencyContactName: string;
   emergencyContactPhone: string;
+}
+
+// Tipos para el chatbot
+interface ChatResponseBase {
+  text?: string;
+  options?: MessageOption[];
+  requiresUserData?: boolean;
+  requiresConsent?: boolean;
+  followUp?: boolean;
+}
+
+type ChatResponsesMap = Record<string, ChatResponseBase>;
+
+interface EmotionFlow {
+  keywords: string[];
+  initial: ChatResponseBase;
+  responses: ChatResponsesMap;
 }
 
 const quickResponses = [
@@ -55,7 +75,7 @@ const professionalHelpKeywords = ['necesito más ayuda', 'necesito ayuda profesi
 const breakupKeywords = ['me dejó', 'me dejo', 'terminamos', 'rompimos', 'ruptura', 'separación', 'mi novia', 'mi novio', 'mi pareja', 'mi ex', 'enamorado', 'enamorada', 'infidelidad', 'engañó', 'engaño', 'traición', 'ya no me quiere', 'me fue infiel', 'acabamos', 'corte', 'termino', 'terminó'];
 
 // FLUJOS DE CONVERSACIÓN POR EMOCIÓN
-const emotionFlows = {
+const emotionFlows: Record<string, EmotionFlow> = {
   frustration: {
     keywords: ['frustrado', 'frustrada', 'frustración', 'desaprobé', 'desaprobe', 'reprobo', 'reprobé', 'suspendi', 'suspendí', 'mal resultado', 'mala nota', 'me fue mal', 'enojado', 'enojada', 'molesto', 'molesta'],
     initial: {
@@ -377,7 +397,7 @@ const getGeneralResponse = (): string => {
   return responses[Math.floor(Math.random() * responses.length)];
 };
 
-export function SupportChatbot() {
+export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   // Obtener datos del usuario
   const getUserData = (): UserData | null => {
     try {
@@ -526,8 +546,10 @@ export function SupportChatbot() {
         const response = flow.responses[actionId as keyof typeof flow.responses];
         
         if (response) {
-          botResponse = response.text;
-          botOptions = response.options;
+          const resp: any = response as any;
+          if (typeof resp.text === 'string') botResponse = resp.text;
+          
+          if ('options' in resp && Array.isArray(resp.options)) botOptions = resp.options;
           
           // Si hay opciones, mantener el contexto
           if (!botOptions) {
@@ -551,17 +573,18 @@ export function SupportChatbot() {
         const response = flow.responses[actionId as keyof typeof flow.responses];
         
         if (response) {
-          if (response.requiresUserData) {
+          const resp: any = response as any;
+          if ('requiresUserData' in resp && resp.requiresUserData) {
             if (actionId === 'contact_adult' && userData && userData.emergencyContactName) {
               botResponse = `Contactar a un adulto de confianza es una decisión valiente y correcta.\n\nTienes registrado a:\n👤 ${userData.emergencyContactName} (${userData.emergencyContactRelation})\n📱 ${userData.emergencyContactPhone}\n\nPuedes llamarle directamente ahora.\n\nRecuerda que pedir ayuda es un acto de fortaleza. 💪`;
             }
           } else {
-            botResponse = response.text;
-            botOptions = response.options;
+            if (typeof resp.text === 'string') botResponse = resp.text;
+            if ('options' in resp && Array.isArray(resp.options)) botOptions = resp.options;
           }
           
           // Si hay opciones, mantener el contexto
-          if (!botOptions && !response.requiresUserData) {
+          if (!botOptions && !(('requiresUserData' in resp) && resp.requiresUserData)) {
             // Agregar cierre conversacional
             setTimeout(() => {
               const closingMessage: Message = {
@@ -580,7 +603,8 @@ export function SupportChatbot() {
         const response = flow.responses[actionId as keyof typeof flow.responses];
         
         if (response) {
-          botResponse = response.text;
+          const resp: any = response as any;
+          if (typeof resp.text === 'string') botResponse = resp.text;
           
           // Agregar cierre conversacional
           setTimeout(() => {

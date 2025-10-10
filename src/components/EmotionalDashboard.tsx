@@ -18,7 +18,7 @@ const motivationalMessages = [
   "Tus sentimientos son válidos y normales.",
 ];
 
-export function EmotionalDashboard() {
+export function EmotionalDashboard({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const todayMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
   const averageMood = Math.round(weeklyMoods.reduce((acc, day) => acc + day.level, 0) / weeklyMoods.length);
 
