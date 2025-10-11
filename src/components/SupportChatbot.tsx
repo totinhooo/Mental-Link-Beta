@@ -25,7 +25,8 @@ interface Message {
 }
 
 interface ConversationContext {
-  emotion?: 'breakup' | 'frustration' | 'anxiety' | 'sadness' | 'tiredness' | null;
+  // Ahora puede contener cualquier clave de flujo (string) para soportar flujos externos añadidos
+  emotion?: string | null;
   stage?: string;
   anxietyIntensity?: 'initial' | 'not_working' | 'resistant' | 'crisis';
   needsProfessionalHelp?: boolean;
@@ -361,24 +362,24 @@ const quickResponsesContextual = {
 };
 
 // Función mejorada para detectar emoción en el mensaje
-const detectEmotion = (message: string): 'breakup' | 'frustration' | 'anxiety' | 'sadness' | 'tiredness' | null => {
+const detectEmotion = (message: string): string | null => {
   const lowerMessage = message.toLowerCase();
-  
-  // PRIORIDAD 1: Detectar ruptura amorosa PRIMERO (más específico)
+
+  // PRIORIDAD 1: Detectar ruptura amorosa PRIMERO
   if (breakupKeywords.some(keyword => lowerMessage.includes(keyword))) {
     return 'breakup';
   }
-  
-  // PRIORIDAD 2: Otras emociones específicas
-  const emotionPriority = ['frustration', 'anxiety', 'tiredness', 'sadness'];
-  
-  for (const emotion of emotionPriority) {
-    const flow = emotionFlows[emotion as keyof typeof emotionFlows];
-    if (flow && flow.keywords.some(keyword => lowerMessage.includes(keyword))) {
-      return emotion as 'frustration' | 'anxiety' | 'sadness' | 'tiredness';
+
+  // Buscar en todos los flujos disponibles (incluye los añadidos desde lunaExtraFlows)
+  for (const [flowKey, flow] of Object.entries(emotionFlows)) {
+    // skip breakup porque ya lo chequeamos
+    if (flowKey === 'breakup') continue;
+    const keywords: string[] = (flow as any).keywords || [];
+    if (keywords.some(keyword => lowerMessage.includes(keyword))) {
+      return flowKey;
     }
   }
-  
+
   return null;
 };
 
