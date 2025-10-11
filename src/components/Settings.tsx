@@ -311,7 +311,7 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
     <div className="space-y-6">
       <div className="text-center">
         <h2 className="text-2xl text-purple-700 dark:text-purple-300 mb-2">Configuración</h2>
-        <p className="text-gray-600 dark:text-gray-400">Personaliz�� tu experiencia</p>
+  <p className="text-gray-600 dark:text-gray-400">Personaliza tu experiencia</p>
       </div>
 
       {/* Perfil del usuario */}
