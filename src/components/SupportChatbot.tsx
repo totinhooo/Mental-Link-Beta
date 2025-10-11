@@ -5,6 +5,7 @@ import { Input } from './ui/input';
 import { Avatar } from './ui/avatar';
 import { Send } from 'lucide-react';
 import { toast } from 'sonner';
+import extraEmotionFlows from '../data/lunaExtraFlows';
 
 interface MessageOption {
   id: string;
@@ -344,6 +345,10 @@ const emotionFlows: Record<string, EmotionFlow> = {
     }
   }
 };
+
+// Merge extra flows provided in `src/data/lunaExtraFlows.ts`.
+// This allows adding Q/A without editing this large component.
+Object.assign(emotionFlows, extraEmotionFlows || {});
 
 // Respuestas rápidas contextuales
 const quickResponsesContextual = {
