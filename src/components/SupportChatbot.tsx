@@ -380,16 +380,27 @@ const detectEmotion = (message: string, currentContext?: ConversationContext): s
   }
 
   // Buscar en todos los flujos disponibles (incluye los añadidos desde lunaExtraFlows)
+  // Score-based matching: sum lengths of matched keywords for each flow; pick highest score
+  let bestFlow: string | null = null;
+  let bestScore = 0;
+
   for (const [flowKey, flow] of Object.entries(emotionFlows)) {
     if (flowKey === 'breakup') continue; // ya chequeado
     const keywords: string[] = (flow as any).keywords || [];
+    let score = 0;
     for (const kw of keywords) {
       const nkw = normalizeText(kw);
       if (nkw && normalized.includes(nkw)) {
-        return flowKey;
+        score += nkw.length; // longer keyword = stronger match
       }
     }
+    if (score > bestScore) {
+      bestScore = score;
+      bestFlow = flowKey;
+    }
   }
+
+  if (bestScore > 0) return bestFlow;
 
   return null;
 };
