@@ -362,21 +362,32 @@ const quickResponsesContextual = {
 };
 
 // Función mejorada para detectar emoción en el mensaje
-const detectEmotion = (message: string): string | null => {
-  const lowerMessage = message.toLowerCase();
+// Normaliza texto: lowercase y quitar diacríticos para mejorar matching
+const normalizeText = (s: string) => s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+
+const detectEmotion = (message: string, currentContext?: ConversationContext): string | null => {
+  const normalized = normalizeText(message);
 
   // PRIORIDAD 1: Detectar ruptura amorosa PRIMERO
-  if (breakupKeywords.some(keyword => lowerMessage.includes(keyword))) {
+  if (breakupKeywords.some(keyword => normalized.includes(normalizeText(keyword)))) {
     return 'breakup';
+  }
+
+  // Shortcut: si estamos en un contexto de motivación y el usuario menciona estudio,
+  // promovemos al flujo 'study' para evitar quedarse en el flujo genérico de motivación.
+  if (currentContext?.emotion === 'motivation' && /(estud|examen|exam|examene?)/.test(normalized)) {
+    return 'study';
   }
 
   // Buscar en todos los flujos disponibles (incluye los añadidos desde lunaExtraFlows)
   for (const [flowKey, flow] of Object.entries(emotionFlows)) {
-    // skip breakup porque ya lo chequeamos
-    if (flowKey === 'breakup') continue;
+    if (flowKey === 'breakup') continue; // ya chequeado
     const keywords: string[] = (flow as any).keywords || [];
-    if (keywords.some(keyword => lowerMessage.includes(keyword))) {
-      return flowKey;
+    for (const kw of keywords) {
+      const nkw = normalizeText(kw);
+      if (nkw && normalized.includes(nkw)) {
+        return flowKey;
+      }
     }
   }
 
@@ -646,7 +657,7 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
     }
     // Detectar emoción en el mensaje
     else {
-      const detectedEmotion = detectEmotion(text);
+  const detectedEmotion = detectEmotion(text, conversationContext);
       
       if (detectedEmotion) {
         const flow = emotionFlows[detectedEmotion];
