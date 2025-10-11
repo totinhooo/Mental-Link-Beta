@@ -1,86 +1,86 @@
 const extraEmotionFlows: Record<string, any> = {
   motivation: {
-    keywords: ['motiv', 'motiva', 'motivacion', 'no tengo ganas'],
+    keywords: ['motiv', 'motiva', 'motivación', 'no tengo ganas'],
     initial: {
-      text: '�Quer�s pasos peque�os o fijar una meta?',
+      text: '¿Querés pasos pequeños o fijar una meta?',
       options: [
-        { id: 'motivation_small', label: 'Pasos peque�os', action: 'motivation_small' },
+        { id: 'motivation_small', label: 'Pasos pequeños', action: 'motivation_small' },
         { id: 'motivation_goal', label: 'Fijar una meta', action: 'motivation_goal' }
       ]
     },
     responses: {
-      motivation_small: { text: 'Eleg� una tarea de 5 minutos y empez�.' },
-      motivation_goal: { text: 'Perfecto. �Cu�l ser�a una meta alcanzable en 1 semana?', followUp: true }
+      motivation_small: { text: 'Elegí una tarea de 5 minutos y empezá.' },
+      motivation_goal: { text: 'Perfecto. ¿Cuál sería una meta alcanzable en 1 semana?', followUp: true }
     }
   },
   study: {
     keywords: ['estud', 'estudiar', 'examen', 'preparar examen', 'estoy estudiando'],
     initial: {
-      text: '�Armar plan o t�cnicas de foco?',
+      text: '¿Armar plan o técnicas de foco?',
       options: [
         { id: 'study_plan', label: 'Armar plan', action: 'study_plan' },
-        { id: 'study_focus', label: 'T�cnicas de foco', action: 'study_focus' }
+        { id: 'study_focus', label: 'Técnicas de foco', action: 'study_focus' }
       ]
     },
     responses: {
-      study_plan: { text: 'Ok  pon� un bloque de 25 minutos y concentrate en un tema.' },
-      study_focus: { text: 'Prob� la t�cnica Pomodoro: 25m estudio / 5m descanso. �Quer�s que arme un plan r�pido?', followUp: true }
+      study_plan: { text: 'Ok — pone un bloque de 25 minutos y concentrate en un tema.' },
+      study_focus: { text: 'Probá la técnica Pomodoro: 25m estudio / 5m descanso. ¿Querés que arme un plan rápido?', followUp: true }
     }
   },
   vent: {
     keywords: ['desahog', 'desahogarme', 'contar', 'necesito hablar', 'me siento mal'],
     initial: {
-      text: 'Si quer�s desahogarte, estoy ac� para escucharte sin juzgar. �Quer�s empezar cont�ndome brevemente lo que pas� o prefer�s t�cnicas para calmarte primero?',
+      text: 'Si querés desahogarte, estoy acá para escucharte sin juzgar. ¿Querés empezar contándome brevemente lo que pasó o preferís técnicas para calmarte primero?',
       options: [
-        { id: 'vent_tell', label: 'Contarte lo que pas�', action: 'vent_tell' },
-        { id: 'vent_calm', label: 'T�cnicas para calmarme', action: 'vent_calm' }
+        { id: 'vent_tell', label: 'Contarte lo que pasó', action: 'vent_tell' },
+        { id: 'vent_calm', label: 'Técnicas para calmarme', action: 'vent_calm' }
       ]
     },
     responses: {
-      vent_tell: { text: 'Estoy escuchando. Contame en tus palabras lo que pas�.', followUp: true },
-      vent_calm: { text: 'T�cnica breve: 5 respiraciones profundas (inhal� 4s, reten� 2s, exhal� 6s). �Quer�s que te gu�e?' }
+      vent_tell: { text: 'Estoy escuchando. Contame en tus palabras lo que pasó.', followUp: true },
+      vent_calm: { text: 'Técnica breve: 5 respiraciones profundas (inhalá 4s, retené 2s, exhalá 6s). ¿Querés que te guíe?' }
     }
   },
   stress: {
-    keywords: ['estresado', 'estresada', 'estres', 'ansiedad', 'agobiado', 'agobiada'],
+    keywords: ['estresado', 'estresada', 'estrés', 'ansiedad', 'agobiado', 'agobiada'],
     initial: {
-      text: 'El estr�s puede sentirse abrumador. �Quer�s pr�cticas r�pidas para bajar el estr�s o hablar de lo que lo causa?',
+      text: 'El estrés puede sentirse abrumador. ¿Querés prácticas rápidas para bajar el estrés o hablar de lo que lo causa?',
       options: [
-        { id: 'stress_quick', label: 'Pr�cticas r�pidas', action: 'stress_quick' },
+        { id: 'stress_quick', label: 'Prácticas rápidas', action: 'stress_quick' },
         { id: 'stress_talk', label: 'Hablar de la causa', action: 'stress_talk' }
       ]
     },
     responses: {
-      stress_quick: { text: 'Pr�ctica r�pida: 3-3-6 respiraciones profundas por 2 minutos, y 30s de estiramiento de cuello.' },
-      stress_talk: { text: 'Contame qu� te est� generando estr�s; podemos explorar pasos peque�os para reducir la carga.', followUp: true }
+      stress_quick: { text: 'Práctica rápida: 3-3-6 respiraciones profundas por 2 minutos, y 30s de estiramiento de cuello.' },
+      stress_talk: { text: 'Contame qué te está generando estrés; podemos explorar pasos pequeños para reducir la carga.', followUp: true }
     }
   },
   sexuality: {
-    keywords: ['sexualidad', 'sexo', 'orientaci�n', 'identidad sexual', 'preguntas sobre sexo', 'siento atracci�n'],
+    keywords: ['sexualidad', 'sexo', 'orientación', 'identidad sexual', 'preguntas sobre sexo', 'siento atracción'],
     initial: {
-      text: 'Puedo hablar sobre sexualidad, orientaci�n e identidad de forma respetuosa y segura. �Qu� te gustar�a preguntar o compartir?',
+      text: 'Puedo hablar sobre sexualidad, orientación e identidad de forma respetuosa y segura. ¿Qué te gustaría preguntar o compartir?',
       options: [
-        { id: 'sex_info', label: 'Informaci�n general', action: 'sex_info' },
+        { id: 'sex_info', label: 'Información general', action: 'sex_info' },
         { id: 'sex_support', label: 'Apoyo emocional', action: 'sex_support' }
       ]
     },
     responses: {
-      sex_info: { text: 'Si ten�s preguntas espec�ficas, pregunt�melas; puedo ofrecer recursos confiables y lenguaje respetuoso.' },
-      sex_support: { text: 'Si esto te genera angustia, contame m�s para poder apoyarte o sugerirte recursos locales.', followUp: true }
+      sex_info: { text: 'Si tenés preguntas específicas, preguntámelas; puedo ofrecer recursos confiables y lenguaje respetuoso.' },
+      sex_support: { text: 'Si esto te genera angustia, contame más para poder apoyarte o sugerirte recursos locales.', followUp: true }
     }
   },
   depression: {
     keywords: ['depresion', 'deprimido', 'deprimida', 'no quiero levantarme', 'sin ganas de vivir', 'triste todo el tiempo'],
     initial: {
-      text: 'Siento que est�s pasando un momento dif�cil. Si est�s en riesgo o pens�s hacerte da�o, busc� ayuda inmediata. �Quer�s hablar de c�mo te sent�s ahora o prefieres recursos y pasos pr�cticos?',
+      text: 'Siento que estás pasando un momento difícil. Si estás en riesgo o pensás hacerte daño, buscá ayuda inmediata. ¿Querés hablar de cómo te sentís ahora o prefieres recursos y pasos prácticos?',
       options: [
-        { id: 'depress_talk', label: 'Hablar de c�mo me siento', action: 'depress_talk' },
-        { id: 'depress_help', label: 'Recursos y pasos pr�cticos', action: 'depress_help' }
+        { id: 'depress_talk', label: 'Hablar de cómo me siento', action: 'depress_talk' },
+        { id: 'depress_help', label: 'Recursos y pasos prácticos', action: 'depress_help' }
       ]
     },
     responses: {
-      depress_talk: { text: 'Gracias por confiarme esto. Contame, �desde cu�ndo sent�s as�? (si prefer�s, escrib� brevemente)', followUp: true },
-      depress_help: { text: 'Pasos pr�cticos: hablar con alguien de confianza, consultar a un profesional de salud mental, peque�as rutinas diarias (luz, movimiento, horarios). �Quer�s que te sugiera recursos locales o l�neas de ayuda?' }
+      depress_talk: { text: 'Gracias por confiarme esto. Contame, ¿desde cuándo sentís así? (si preferís, escribilo brevemente)', followUp: true },
+      depress_help: { text: 'Pasos prácticos: hablar con alguien de confianza, consultar a un profesional de salud mental, pequeñas rutinas diarias (luz, movimiento, horarios). ¿Querés que te sugiera recursos locales o líneas de ayuda?' }
     }
   }
 };
