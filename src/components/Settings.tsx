@@ -426,14 +426,8 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="es">🇦🇷 Español (Argentina)</SelectItem>
-                <SelectItem value="es-mx">🇲🇽 Español (México)</SelectItem>
-                <SelectItem value="es-co">🇨🇴 Español (Colombia)</SelectItem>
+                <SelectItem value="es">�� Español (LatAm)</SelectItem>
                 <SelectItem value="en">🇺🇸 English (US)</SelectItem>
-                <SelectItem value="en-uk">🇬🇧 English (UK)</SelectItem>
-                <SelectItem value="pt">🇧🇷 Português (Brasil)</SelectItem>
-                <SelectItem value="fr">🇫🇷 Français</SelectItem>
-                <SelectItem value="it">🇮🇹 Italiano</SelectItem>
               </SelectContent>
             </Select>
           </div>
