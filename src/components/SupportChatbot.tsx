@@ -239,7 +239,7 @@ const emotionFlows: Record<string, EmotionFlow> = {
         { id: 'breakup_healing', label: 'b) 🔄 Estrategias para sanar', action: 'breakup_healing' },
         { id: 'breakup_identity', label: 'c) 📝 Reconstruir mi identidad', action: 'breakup_identity' },
         { id: 'breakup_support', label: 'd) 👥 Apoyo humano', action: 'breakup_support' },
-        { id: 'breakup_plan', label: 'e) 🎯 Plan de superación', action: 'breakup_plan' }
+        { id: 'breakup_plan', label: 'e) 🎯 Plan de superación', action: 'breakup_plan' } 
       ]
     },
     responses: {
