@@ -1,7 +1,7 @@
 import en from './en.json';
 import es from './es.json';
 
-type Locales = 'en' | 'es' | 'es-mx' | 'es-co' | string;
+type Locales = 'en' | 'es' | string;
 
 const catalog: Record<string, any> = {
   en,
