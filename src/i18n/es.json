@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "home": "Inicio",
+    "dashboard": "Dashboard",
+    "chat": "Chat con Luna",
+    "wellness": "Bienestar",
+    "adults": "Adultos de Confianza",
+    "calendar": "Calendario",
+    "diagnosis": "Resumen",
+    "team": "Contactar Equipo",
+    "settings": "Configuración"
+  },
+  "nav": {
+    "backToHome": "← Volver al inicio"
+  },
+  "landing": {
+    "description": "Mental Link es tu espacio seguro para expresarte, aprender a manejar tus emociones y encontrar apoyo cuando lo necesites."
+  },
+  "settings": {
+    "languageLabel": "Idioma de la aplicación",
+    "languageNote": "Mental Link se adapta a tu idioma y cultura. Luna también habla en tu idioma preferido."
+  }
+}

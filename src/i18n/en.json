@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "chat": "Chat with Luna",
+    "wellness": "Wellness",
+    "adults": "Trusted Adults",
+    "calendar": "Calendar",
+    "diagnosis": "Summary",
+    "team": "Contact Team",
+    "settings": "Settings"
+  },
+  "nav": {
+    "backToHome": "← Back to home"
+  },
+  "landing": {
+    "description": "Mental Link is your safe space to express yourself, learn to manage your emotions and find support when you need it."
+  },
+  "settings": {
+    "languageLabel": "Application language",
+    "languageNote": "Mental Link adapts to your language and culture. Luna also speaks your preferred language."
+  }
+}

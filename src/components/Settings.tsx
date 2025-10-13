@@ -6,6 +6,7 @@ import instagramIconDark from 'figma:asset/2f24f54a2d5cf83a8750b8e1e9d21cc57b297
 import mentalLinkPng from 'figma:asset/7f894c8252ee503e03eae1186a98ae9ff28e8d17.png';
 import mentalLinkDarkPng from 'figma:asset/d9f3413577834151f481b2330404507b220e52d6.png';
 import { Switch } from './ui/switch';
+import t, { getPersistedLang, setPersistedLang } from '../i18n';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Separator } from './ui/separator';
 import { Alert, AlertDescription } from './ui/alert';
@@ -39,7 +40,16 @@ interface SettingsProps {
 }
 
 export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps) {
-  const [language, setLanguage] = useState('es');
+  const [language, setLanguage] = useState(getPersistedLang());
+  
+  // Persist language selection
+  const handleLanguageChange = (val: string) => {
+    setLanguage(val);
+    setPersistedLang(val);
+    toast.success('Idioma actualizado', { duration: 2000 });
+    // reload to apply translations broadly (simple approach)
+    setTimeout(() => window.location.reload(), 350);
+  };
   const [notifications, setNotifications] = useState(true);
   const [autoTheme, setAutoTheme] = useState(false);
   const [dataBackup, setDataBackup] = useState(true);
@@ -409,9 +419,9 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
         <div className="space-y-4">
           <div>
             <label className="text-sm text-gray-600 dark:text-gray-400 mb-2 block">
-              Idioma de la aplicación
+              {t('settings.languageLabel')}
             </label>
-            <Select value={language} onValueChange={setLanguage}>
+            <Select value={language} onValueChange={handleLanguageChange}>
               <SelectTrigger className="dark:bg-gray-700 dark:border-gray-600">
                 <SelectValue />
               </SelectTrigger>
@@ -430,7 +440,7 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
           
           <div className="p-3 rounded-lg bg-green-50 dark:bg-slate-700/20 border border-green-200 dark:border-slate-600">
             <p className="text-sm text-green-700 dark:text-slate-300">
-              🌍 Mental Link se adapta a tu idioma y cultura. Luna también habla en tu idioma preferido.
+              🌍 {t('settings.languageNote')}
             </p>
           </div>
         </div>

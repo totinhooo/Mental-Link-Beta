@@ -19,6 +19,7 @@ import { TeamContact } from './components/TeamContact';
 import { OnboardingModal } from './components/OnboardingModal';
 import { Toaster } from './components/ui/sonner';
 import { Home, BarChart3, MessageCircle, Heart, Users, Settings as SettingsIcon, ArrowRight, UserCheck, Eye, AlertCircle, CheckCircle, Phone, Info, Headphones, BookOpen, Menu, Calendar, ClipboardList, Mail } from 'lucide-react';
+import { t } from './i18n';
 import mentalLinkLogo from 'figma:asset/eafbf3cbd73202cb4317c654f8816344093bb9f7.png';
 import mentalLinkDarkLogo from 'figma:asset/d9f3413577834151f481b2330404507b220e52d6.png';
 import instagramIcon from 'figma:asset/2dbc6e4b8804b5a91432dbdc31008769164c72a3.png';
@@ -222,7 +223,7 @@ export default function App() {
                   isDarkMode ? 'text-[#B0E0E6] hover:text-[#9dd5de]' : 'text-[#5fa3b0] hover:text-[#4d8a97]'
                 }`}
               >
-                ← Volver
+                {t('nav.backToHome')}
               </Button>
               <a 
                 href="https://www.instagram.com/mentallink._?igsh=MTV5eGY2ZGNiaTJxeg%3D%3D&utm_source=qr"
@@ -673,8 +674,8 @@ export default function App() {
       <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'bg-gradient-to-br from-gray-900 via-purple-900/20 to-blue-900/20' : 'bg-gradient-to-br from-purple-50 via-blue-50 to-green-50'}`}>
       <div className={`backdrop-blur-sm border-b sticky top-0 z-10 transition-colors duration-300 ${isDarkMode ? 'bg-gray-900/80 border-gray-700' : 'bg-white/80 border-purple-100'}`}>
         <div className="max-w-md mx-auto px-4 py-4">
-          <div className="flex justify-between items-center mb-2">
-            <Button onClick={handleBackToLanding} variant="ghost" size="sm" className={`text-xs ${isDarkMode ? 'text-[#B0E0E6] hover:text-[#9dd5de]' : 'text-[#5fa3b0] hover:text-[#4d8a97]'}`}>← Volver al inicio</Button>
+            <div className="flex justify-between items-center mb-2">
+            <Button onClick={handleBackToLanding} variant="ghost" size="sm" className={`text-xs ${isDarkMode ? 'text-[#B0E0E6] hover:text-[#9dd5de]' : 'text-[#5fa3b0] hover:text-[#4d8a97]'}`}>{t('nav.backToHome')}</Button>
           </div>
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0"><img src={mentalLinkDarkLogo} alt="Mental Link Logo" className="h-28 w-28" /></div>
@@ -689,19 +690,19 @@ export default function App() {
                 </SheetTrigger>
                 <SheetContent side="right" className={`w-80 ${isDarkMode ? 'bg-gray-900/95 border-gray-700' : 'bg-white/95 border-purple-100'}`}>
                   <SheetHeader>
-                    <SheetTitle className={isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'}>Menú</SheetTitle>
-                    <SheetDescription className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>Navega por todas las secciones de Mental Link</SheetDescription>
+                    <SheetTitle className={isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'}>{t('menu.home')}</SheetTitle>
+                    <SheetDescription className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>{t('menu.dashboard')}</SheetDescription>
                   </SheetHeader>
                   <div className="mt-6 space-y-2">
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'home' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('home'); setIsMenuOpen(false); }}><Home className="w-5 h-5 mr-3" />Página Principal</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'home' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('home'); setIsMenuOpen(false); }}><Home className="w-5 h-5 mr-3" />{t('menu.home')}</Button>
                     <Button variant="ghost" className={`w-full justify-start ${activeTab === 'dashboard' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('dashboard'); setIsMenuOpen(false); }}><BarChart3 className="w-5 h-5 mr-3" />Dashboard</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'chat' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('chat'); setIsMenuOpen(false); }}><MessageCircle className="w-5 h-5 mr-3" />Chat con Luna</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'wellness' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('wellness'); setIsMenuOpen(false); }}><Heart className="w-5 h-5 mr-3" />Bienestar</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'adults' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('adults'); setIsMenuOpen(false); }}><Users className="w-5 h-5 mr-3" />Adultos de Confianza</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'calendar' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('calendar'); setIsMenuOpen(false); }}><Calendar className="w-5 h-5 mr-3" />Calendario</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'diagnosis' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('diagnosis'); setIsMenuOpen(false); }}><ClipboardList className="w-5 h-5 mr-3" />Resumen</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'team' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('team'); setIsMenuOpen(false); }}><Mail className="w-5 h-5 mr-3" />Sobre Nosotros</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'settings' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('settings'); setIsMenuOpen(false); }}><SettingsIcon className="w-5 h-5 mr-3" />Configuración</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'chat' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('chat'); setIsMenuOpen(false); }}><MessageCircle className="w-5 h-5 mr-3" />{t('menu.chat')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'wellness' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('wellness'); setIsMenuOpen(false); }}><Heart className="w-5 h-5 mr-3" />{t('menu.wellness')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'adults' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('adults'); setIsMenuOpen(false); }}><Users className="w-5 h-5 mr-3" />{t('menu.adults')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'calendar' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('calendar'); setIsMenuOpen(false); }}><Calendar className="w-5 h-5 mr-3" />{t('menu.calendar')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'diagnosis' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('diagnosis'); setIsMenuOpen(false); }}><ClipboardList className="w-5 h-5 mr-3" />{t('menu.diagnosis')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'team' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('team'); setIsMenuOpen(false); }}><Mail className="w-5 h-5 mr-3" />{t('menu.team')}</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'settings' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('settings'); setIsMenuOpen(false); }}><SettingsIcon className="w-5 h-5 mr-3" />{t('menu.settings')}</Button>
                   </div>
                 </SheetContent>
               </Sheet>
