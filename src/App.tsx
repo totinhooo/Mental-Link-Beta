@@ -560,7 +560,7 @@ export default function App() {
                 <p className={`text-base leading-relaxed transition-colors duration-300 ${
                   isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                 }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                  Mental Link es tu espacio seguro para expresarte, aprender a manejar tus emociones y encontrar apoyo cuando lo necesites.
+                  Mental Link te acompaña en tu bienestar emocional, ayudándote a reconocer cómo te sentís y encontrar equilibrio en tu día a día.
                 </p>
               </div>
             </div>
@@ -595,8 +595,7 @@ export default function App() {
               <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
               }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                Una herramienta digital de acompañamiento para jóvenes y adultos, 
-                que te ayuda a identificar y manejar tus emociones de manera saludable.
+                Un espacio seguro donde podés expresarte libremente, descubrir recursos para cuidar tu salud mental y recibir orientación cuando más lo necesites.
               </p>
               <div className={`flex items-center justify-center space-x-6 text-sm transition-colors duration-300 ${
                 isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
