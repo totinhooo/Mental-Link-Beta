@@ -2,6 +2,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Instagram, Mail, MapPin, School, Users, Heart } from 'lucide-react';
+import t from '../i18n';
 
 export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   return (
@@ -11,10 +12,10 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="text-center space-y-3">
           <Users className="w-8 h-8 mx-auto text-green-600 dark:text-green-400" />
           <h1 className="text-lg text-green-700 dark:text-green-300">
-            Contacta con nuestro equipo
+            {t('teamContact.title')}
           </h1>
           <p className="text-sm text-green-600 dark:text-green-200">
-            Somos estudiantes comprometidos con el bienestar emocional. ¡Queremos escucharte!
+            {t('teamContact.subtitle')}
           </p>
         </div>
       </Card>
@@ -25,29 +26,27 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
           <div className="flex items-center space-x-3 mb-4">
             <School className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             <h2 className="text-lg text-gray-800 dark:text-gray-200">
-              Quiénes somos
+              {t('teamContact.whoWeAre.title')}
             </h2>
           </div>
           
           <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
             <p>
-              Somos un grupo de estudiantes de la <strong>E.S.E.T.P N.º 724 "Presidente Dr. Humberto Illia"</strong> 
-              de Trelew, Chubut, Argentina.
+              {t('teamContact.whoWeAre.p1_pre')} <strong>E.S.E.T.P N.º 724 "Presidente Dr. Humberto Illia"</strong> 
+              {t('teamContact.whoWeAre.p1_post')}
             </p>
             <p>
-              Nuestro proyecto nace de la pasión por la tecnología y el compromiso social. Creemos que 
-              la innovación puede ser una herramienta poderosa para mejorar la salud mental de nuestra comunidad.
+              {t('teamContact.whoWeAre.p2')}
             </p>
             <p>
-              Mental Link es más que una aplicación: es nuestro aporte para crear un mundo donde 
-              todos puedan expresar sus emociones y encontrar apoyo cuando lo necesiten.
+              {t('teamContact.whoWeAre.p3')}
             </p>
           </div>
 
           <div className="flex items-center space-x-2 pt-3">
             <MapPin className="w-4 h-4 text-green-600 dark:text-green-400" />
             <span className="text-sm text-gray-600 dark:text-gray-400">
-              Trelew, Chubut - Argentina 🇦🇷
+              {t('teamContact.location')}
             </span>
           </div>
         </div>
@@ -56,7 +55,7 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
       {/* Formas de contacto */}
       <div className="space-y-4">
         <h3 className="text-lg text-gray-800 dark:text-gray-200 text-center">
-          ¿Cómo puedes contactarnos?
+          {t('teamContact.contactWays.title')}
         </h3>
 
         {/* Instagram */}
@@ -69,10 +68,10 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
             </div>
             <div className="flex-1">
               <h4 className="text-sm text-gray-800 dark:text-gray-200 mb-1">
-                Instagram oficial
+                {t('teamContact.instagram.title')}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                Síguenos para ver actualizaciones, tips de bienestar y conocer más sobre nuestro proyecto
+                {t('teamContact.instagram.description')}
               </p>
               <Button
                 onClick={() => window.open('https://www.instagram.com/mentallink._?igsh=MTV5eGY2ZGNiaTJxeg%3D%3D&utm_source=qr', '_blank')}
@@ -80,7 +79,7 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
                 size="sm"
                 className="w-full border-pink-200 text-pink-600 hover:bg-pink-50 dark:border-pink-700 dark:text-pink-400 dark:hover:bg-pink-900/20"
               >
-                @mentallink._
+                {t('teamContact.instagram.handle')}
               </Button>
             </div>
           </div>
@@ -96,18 +95,18 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
             </div>
             <div className="flex-1">
               <h4 className="text-sm text-gray-800 dark:text-gray-200 mb-1">
-                Correo electrónico
+                {t('teamContact.email.title')}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                Para consultas, sugerencias o si quieres colaborar con nuestro proyecto
+                {t('teamContact.email.description')}
               </p>
               <Button
-                onClick={() => window.open('mailto:mentallink.team@gmail.com?subject=Contacto desde Mental Link App', '_blank')}
+                onClick={() => window.open(t('teamContact.email.mailto'), '_blank')}
                 variant="outline"
                 size="sm"
                 className="w-full border-blue-200 text-blue-600 hover:bg-blue-50 dark:border-blue-700 dark:text-blue-400 dark:hover:bg-blue-900/20"
               >
-                mentallink.team@gmail.com
+                {t('teamContact.email.address')}
               </Button>
             </div>
           </div>
@@ -123,15 +122,15 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
             </div>
             <div className="flex-1">
               <h4 className="text-sm text-gray-800 dark:text-gray-200 mb-1">
-                Nuestra institución
+                {t('teamContact.school.title')}
               </h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                E.S.E.T.P N.º 724 "Presidente Dr. Humberto Illia"
+                {t('teamContact.school.name')}
               </p>
               <div className="flex items-center space-x-2">
                 <MapPin className="w-3 h-3 text-green-600 dark:text-green-400" />
                 <span className="text-xs text-green-600 dark:text-green-400">
-                  Trelew, Chubut, Argentina
+                  {t('teamContact.school.location')}
                 </span>
               </div>
             </div>
@@ -144,29 +143,28 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="text-center space-y-3">
           <Heart className="w-8 h-8 mx-auto text-purple-600 dark:text-purple-400" />
           <h3 className="text-lg text-purple-700 dark:text-purple-300">
-            Nuestro compromiso contigo
+            {t('teamContact.commitment.title')}
           </h3>
           <div className="space-y-2 text-sm text-purple-600 dark:text-purple-200">
             <p>
-              Sabemos que hablar de salud mental requiere confianza y respeto. 
-              Por eso, nos comprometemos a:
+              {t('teamContact.commitment.intro')}
             </p>
             <div className="space-y-1 text-xs">
               <div className="flex items-center justify-center space-x-2">
                 <span>🤝</span>
-                <span>Escuchar sin juzgar</span>
+                <span>{t('teamContact.commitment.listen')}</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <span>🔒</span>
-                <span>Respetar tu privacidad</span>
+                <span>{t('teamContact.commitment.privacy')}</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <span>💙</span>
-                <span>Ofrecer apoyo genuino</span>
+                <span>{t('teamContact.commitment.support')}</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <span>🌱</span>
-                <span>Crecer juntos</span>
+                <span>{t('teamContact.commitment.grow')}</span>
               </div>
             </div>
           </div>
@@ -177,29 +175,28 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
       <Card className="p-5 bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20">
         <div className="space-y-3">
           <h3 className="text-sm text-blue-700 dark:text-blue-300 text-center">
-            ¿Quieres colaborar con Mental Link?
+            {t('teamContact.collab.title')}
           </h3>
           <div className="text-xs text-blue-600 dark:text-blue-200 space-y-2">
             <p>
-              Si eres profesional de la salud mental, educador, o simplemente alguien que quiere 
-              aportar al proyecto, ¡nos encantaría conocerte!
+              {t('teamContact.collab.p1')}
             </p>
             <div className="grid grid-cols-2 gap-3 mt-3">
               <div className="text-center">
                 <span className="block text-lg mb-1">👩‍⚕️</span>
-                <span className="text-xs">Profesionales de salud</span>
+                <span className="text-xs">{t('teamContact.collab.healthProfessionals')}</span>
               </div>
               <div className="text-center">
                 <span className="block text-lg mb-1">👩‍🏫</span>
-                <span className="text-xs">Educadores</span>
+                <span className="text-xs">{t('teamContact.collab.educators')}</span>
               </div>
               <div className="text-center">
                 <span className="block text-lg mb-1">💻</span>
-                <span className="text-xs">Desarrolladores</span>
+                <span className="text-xs">{t('teamContact.collab.developers')}</span>
               </div>
               <div className="text-center">
                 <span className="block text-lg mb-1">🎨</span>
-                <span className="text-xs">Diseñadores</span>
+                <span className="text-xs">{t('teamContact.collab.designers')}</span>
               </div>
             </div>
           </div>
@@ -211,19 +208,19 @@ export function TeamContact({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="flex items-center justify-center space-x-6 text-sm text-gray-500 dark:text-gray-400">
           <div className="text-center">
             <span className="block text-2xl mb-1">🌟</span>
-            <span className="text-xs">Innovación</span>
+            <span className="text-xs">{t('teamContact.values.innovation')}</span>
           </div>
           <div className="text-center">
             <span className="block text-2xl mb-1">🤝</span>
-            <span className="text-xs">Colaboración</span>
+            <span className="text-xs">{t('teamContact.values.collaboration')}</span>
           </div>
           <div className="text-center">
             <span className="block text-2xl mb-1">💜</span>
-            <span className="text-xs">Empatía</span>
+            <span className="text-xs">{t('teamContact.values.empathy')}</span>
           </div>
         </div>
         <p className="text-xs text-gray-400 dark:text-gray-500 mt-3">
-          Hecho con 💙 por estudiantes de Trelew para el mundo
+          {t('teamContact.footer.madeWith')}
         </p>
       </div>
     </div>

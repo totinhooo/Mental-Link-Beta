@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { t } from '../i18n';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './ui/dialog';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
@@ -12,40 +13,40 @@ interface OnboardingModalProps {
 
 const onboardingSteps = [
   {
-    title: "¡Bienvenido a Mental Link! 🌙",
-    description: "Tu compañero personal para cuidar tu salud mental y bienestar emocional",
+    title: t('onboarding.steps.1.title'),
+    description: t('onboarding.steps.1.description'),
     icon: <Sparkles className="w-16 h-16 text-purple-500" />,
-    content: "Mental Link te ayuda a registrar tus emociones, recibir apoyo y conectarte con personas de confianza cuando lo necesites."
+    content: t('onboarding.steps.1.content')
   },
   {
-    title: "Inicio y Estados de Ánimo 😊",
-    description: "Expresa cómo te sentís cada día",
+    title: t('onboarding.steps.2.title'),
+    description: t('onboarding.steps.2.description'),
     icon: <Home className="w-16 h-16 text-blue-500" />,
-    content: "Seleccioná emojis o escribí libremente sobre tus emociones. Recibirás mensajes personalizados de apoyo según tu estado."
+    content: t('onboarding.steps.2.content')
   },
   {
-    title: "Luna - Tu Chatbot de Apoyo 🌙",
-    description: "Conversaciones empáticas 24/7",
+    title: t('onboarding.steps.3.title'),
+    description: t('onboarding.steps.3.description'),
     icon: <MessageCircle className="w-16 h-16 text-purple-500" />,
-    content: "Luna está siempre disponible para escucharte, ofrecerte técnicas de relajación y guiarte cuando necesites apoyo emocional."
+    content: t('onboarding.steps.3.content')
   },
   {
-    title: "Dashboard y Calendario 📊",
-    description: "Visualiza tu progreso emocional",
+    title: t('onboarding.steps.4.title'),
+    description: t('onboarding.steps.4.description'),
     icon: <BarChart3 className="w-16 h-16 text-green-500" />,
-    content: "Observá patrones en tus emociones con gráficos interactivos y llevá un registro diario en tu calendario personal."
+    content: t('onboarding.steps.4.content')
   },
   {
-    title: "Ejercicios de Bienestar 💆",
-    description: "Técnicas prácticas para tu día a día",
+    title: t('onboarding.steps.5.title'),
+    description: t('onboarding.steps.5.description'),
     icon: <Heart className="w-16 h-16 text-red-500" />,
-    content: "Accedé a ejercicios de respiración, meditación y relajación para manejar ansiedad, estrés y mejorar tu bienestar."
+    content: t('onboarding.steps.5.content')
   },
   {
-    title: "Red de Apoyo 👥",
-    description: "Conectá con adultos de confianza",
+    title: t('onboarding.steps.6.title'),
+    description: t('onboarding.steps.6.description'),
     icon: <Users className="w-16 h-16 text-orange-500" />,
-    content: "Registrá contactos de personas de confianza para recibir apoyo cuando lo necesites. Tu seguridad es nuestra prioridad."
+    content: t('onboarding.steps.6.content')
   }
 ];
 
@@ -122,18 +123,18 @@ export function OnboardingModal({ isOpen, onClose, userName }: OnboardingModalPr
             onClick={handleSkip}
             className="text-gray-600 dark:text-gray-400"
           >
-            Saltar tour
+            {t('onboarding.skip')}
           </Button>
 
           <div className="flex gap-2">
-            {currentStep > 0 && (
+                {currentStep > 0 && (
               <Button
                 variant="outline"
                 onClick={handlePrevious}
                 className="space-x-1"
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span>Anterior</span>
+                    <span>{t('onboarding.previous')}</span>
               </Button>
             )}
             
@@ -141,7 +142,7 @@ export function OnboardingModal({ isOpen, onClose, userName }: OnboardingModalPr
               onClick={handleNext}
               className="bg-purple-600 hover:bg-purple-700 space-x-1"
             >
-              <span>{currentStep === onboardingSteps.length - 1 ? '¡Empezar!' : 'Siguiente'}</span>
+              <span>{currentStep === onboardingSteps.length - 1 ? t('onboarding.start') : t('onboarding.next')}</span>
               {currentStep < onboardingSteps.length - 1 && <ChevronRight className="w-4 h-4" />}
             </Button>
           </div>

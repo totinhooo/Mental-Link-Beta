@@ -3,6 +3,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ChevronLeft, ChevronRight, Calendar, TrendingUp } from 'lucide-react';
+import t, { getPersistedLang } from '../i18n';
 
 interface DayData {
   date: string;
@@ -33,12 +34,15 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
     }
   }, []);
 
-  const monthNames = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-  ];
+  const lang = getPersistedLang();
+  const locale = lang === 'en' ? 'en-US' : 'es-AR';
+  const monthNames = lang === 'en'
+    ? ['January','February','March','April','May','June','July','August','September','October','November','December']
+    : ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
 
-  const dayNames = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+  const dayNames = lang === 'en'
+    ? ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+    : ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
   const getDaysInMonth = (date: Date) => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
@@ -145,46 +149,49 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* Header */
+      }
       <Card className="p-6 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 border-purple-200 dark:border-purple-700">
         <div className="text-center space-y-3">
           <Calendar className="w-8 h-8 mx-auto text-purple-600 dark:text-purple-400" />
           <h1 className="text-lg text-purple-700 dark:text-purple-300">
-            Calendario emocional
+            {t('emotionalCalendar.title')}
           </h1>
           <p className="text-sm text-purple-600 dark:text-purple-200">
-            Visualiza tu progreso emocional día a día y descubre patrones en tu bienestar.
+            {t('emotionalCalendar.description')}
           </p>
         </div>
       </Card>
 
-      {/* Resumen mensual */}
+      {/* Resumen mensual */
+      }
       {dailyData.length > 0 && (
         <Card className="p-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm text-gray-800 dark:text-gray-200 flex items-center space-x-2">
               <TrendingUp className="w-4 h-4" />
-              <span>Promedio del mes</span>
+              <span>{t('emotionalCalendar.monthAverage')}</span>
             </h3>
           </div>
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">Estado de ánimo</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.mood')}</div>
               <div className="text-lg font-medium text-purple-600 dark:text-purple-400">{averages.mood}/10</div>
             </div>
             <div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">Energía</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.energy')}</div>
               <div className="text-lg font-medium text-blue-600 dark:text-blue-400">{averages.energy}/10</div>
             </div>
             <div>
-              <div className="text-xs text-gray-500 dark:text-gray-400">Estrés</div>
+              <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.stress')}</div>
               <div className="text-lg font-medium text-red-600 dark:text-red-400">{averages.stress}/10</div>
             </div>
           </div>
         </Card>
       )}
 
-      {/* Navegación del calendario */}
+      {/* Navegación del calendario */
+      }
       <Card className="p-4">
         <div className="flex items-center justify-between mb-4">
           <Button
@@ -210,7 +217,8 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
           </Button>
         </div>
 
-        {/* Días de la semana */}
+        {/* Días de la semana */
+        }
         <div className="grid grid-cols-7 gap-1 mb-2">
           {dayNames.map(day => (
             <div key={day} className="text-center text-xs text-gray-500 dark:text-gray-400 p-2">
@@ -224,35 +232,37 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
           {renderCalendarDays()}
         </div>
 
-        {/* Leyenda */}
+        {/* Leyenda */
+        }
         <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
           <div className="flex items-center justify-center space-x-4 text-xs">
             <div className="flex items-center space-x-1">
               <div className="w-2 h-2 rounded-full bg-red-500"></div>
-              <span className="text-gray-500 dark:text-gray-400">Día difícil</span>
+              <span className="text-gray-500 dark:text-gray-400">{t('emotionalCalendar.legend.hard')}</span>
             </div>
             <div className="flex items-center space-x-1">
               <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-              <span className="text-gray-500 dark:text-gray-400">Día normal</span>
+              <span className="text-gray-500 dark:text-gray-400">{t('emotionalCalendar.legend.normal')}</span>
             </div>
             <div className="flex items-center space-x-1">
               <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              <span className="text-gray-500 dark:text-gray-400">Buen día</span>
+              <span className="text-gray-500 dark:text-gray-400">{t('emotionalCalendar.legend.good')}</span>
             </div>
           </div>
         </div>
       </Card>
 
-      {/* Detalle del día seleccionado */}
+      {/* Detalle del día seleccionado */
+      }
       {selectedDay && (
         <Card className="p-5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-sm text-blue-700 dark:text-blue-300">
-                Detalles del día
+                {t('emotionalCalendar.dayDetails')}
               </h3>
               <Badge variant="outline">
-                {new Date(selectedDay.date).toLocaleDateString('es-AR', { 
+                {new Date(selectedDay.date).toLocaleDateString(locale, { 
                   weekday: 'long', 
                   month: 'long', 
                   day: 'numeric' 
@@ -262,25 +272,25 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
             
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">Estado de ánimo</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.mood')}</div>
                 <div className="text-lg flex items-center justify-center space-x-1">
                   <span>{getMoodEmoji(selectedDay.mood)}</span>
                   <span className="text-purple-600 dark:text-purple-400">{selectedDay.mood}/10</span>
                 </div>
               </div>
               <div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">Energía</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.energy')}</div>
                 <div className="text-lg text-blue-600 dark:text-blue-400">{selectedDay.energy}/10</div>
               </div>
               <div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">Estrés</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400">{t('emotionalCalendar.avg.stress')}</div>
                 <div className="text-lg text-red-600 dark:text-red-400">{selectedDay.stress}/10</div>
               </div>
             </div>
 
             {selectedDay.notes && (
               <div className="pt-3 border-t border-blue-200 dark:border-blue-700">
-                <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">Notas del día:</div>
+                <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">{t('emotionalCalendar.dayNotes')}</div>
                 <p className="text-sm text-gray-700 dark:text-gray-300">{selectedDay.notes}</p>
               </div>
             )}
@@ -288,15 +298,16 @@ export function EmotionalCalendar({ isDarkMode }: { isDarkMode?: boolean } = {})
         </Card>
       )}
 
-      {/* Mensaje si no hay datos */}
+      {/* Mensaje si no hay datos */
+      }
       {dailyData.length === 0 && (
         <Card className="p-6 text-center">
           <span className="text-4xl mb-4 block">📅</span>
           <h3 className="text-lg mb-2 text-gray-700 dark:text-gray-300">
-            Aún no tienes registros
+            {t('emotionalCalendar.empty.title')}
           </h3>
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-            Completa tu primer resumen diario para comenzar a ver tu progreso emocional en el calendario.
+            {t('emotionalCalendar.empty.description')}
           </p>
         </Card>
       )}

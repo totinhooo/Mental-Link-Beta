@@ -6,6 +6,7 @@ import { Avatar } from './ui/avatar';
 import { Send } from 'lucide-react';
 import { toast } from 'sonner';
 import extraEmotionFlows from '../data/lunaExtraFlows';
+import t from '../i18n';
 
 interface MessageOption {
   id: string;
@@ -59,22 +60,37 @@ interface EmotionFlow {
 }
 
 const quickResponses = [
-  "🆘 Necesito ayuda ahora",
-  "😰 Me siento ansioso/a",
-  "😔 Estoy triste hoy",
-  "💭 Quiero desahogarme",
-  "💪 Necesito motivación",
-  "😌 Quiero relajarme"
+  t('chatbot.quickResponses.help'),
+  t('chatbot.quickResponses.anxious'),
+  t('chatbot.quickResponses.sad'),
+  t('chatbot.quickResponses.vent'),
+  t('chatbot.quickResponses.motivation'),
+  t('chatbot.quickResponses.relax')
 ];
 
 // Palabras clave que indican que las técnicas no están funcionando
-const notWorkingKeywords = ['no funciona', 'no me funciona', 'no está funcionando', 'sigo igual', 'sigo ansioso', 'sigo ansiosa', 'no ayuda', 'no sirve', 'peor', 'nada funciona', 'todo es inútil', 'es inútil'];
+const notWorkingKeywords = [
+  t('chatbot.keywords.notWorking1'), t('chatbot.keywords.notWorking2'), t('chatbot.keywords.notWorking3'),
+  t('chatbot.keywords.notWorking4'), t('chatbot.keywords.notWorking5'), t('chatbot.keywords.notWorking6'),
+  t('chatbot.keywords.notWorking7'), t('chatbot.keywords.notWorking8'), t('chatbot.keywords.notWorking9'),
+  t('chatbot.keywords.notWorking10'), t('chatbot.keywords.notWorking11'), t('chatbot.keywords.notWorking12')
+];
 
 // Palabras clave que indican necesidad de ayuda profesional
-const professionalHelpKeywords = ['necesito más ayuda', 'necesito ayuda profesional', 'quiero hablar con alguien', 'nada me ayuda', 'todo falla', 'no puedo más'];
+const professionalHelpKeywords = [
+  t('chatbot.keywords.professionalHelp1'), t('chatbot.keywords.professionalHelp2'), t('chatbot.keywords.professionalHelp3'),
+  t('chatbot.keywords.professionalHelp4'), t('chatbot.keywords.professionalHelp5'), t('chatbot.keywords.professionalHelp6')
+];
 
 // Palabras clave PRIORITARIAS para rupturas amorosas
-const breakupKeywords = ['me dejó', 'me dejo', 'terminamos', 'rompimos', 'ruptura', 'separación', 'mi novia', 'mi novio', 'mi pareja', 'mi ex', 'enamorado', 'enamorada', 'infidelidad', 'engañó', 'engaño', 'traición', 'ya no me quiere', 'me fue infiel', 'acabamos', 'corte', 'termino', 'terminó'];
+const breakupKeywords = [
+  t('chatbot.keywords.breakup1'), t('chatbot.keywords.breakup2'), t('chatbot.keywords.breakup3'), t('chatbot.keywords.breakup4'),
+  t('chatbot.keywords.breakup5'), t('chatbot.keywords.breakup6'), t('chatbot.keywords.breakup7'), t('chatbot.keywords.breakup8'),
+  t('chatbot.keywords.breakup9'), t('chatbot.keywords.breakup10'), t('chatbot.keywords.breakup11'), t('chatbot.keywords.breakup12'),
+  t('chatbot.keywords.breakup13'), t('chatbot.keywords.breakup14'), t('chatbot.keywords.breakup15'), t('chatbot.keywords.breakup16'),
+  t('chatbot.keywords.breakup17'), t('chatbot.keywords.breakup18'), t('chatbot.keywords.breakup19'), t('chatbot.keywords.breakup20'),
+  t('chatbot.keywords.breakup21'), t('chatbot.keywords.breakup22'), t('chatbot.keywords.breakup23')
+];
 
 // FLUJOS DE CONVERSACIÓN POR EMOCIÓN
 const emotionFlows: Record<string, EmotionFlow> = {
@@ -447,8 +463,8 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
 
   const userName = getUserName();
   const welcomeMessage = userName 
-    ? `¡Hola ${userName}! 🌙 Soy Luna, tu compañera de apoyo emocional. Me alegra verte de nuevo. ¿Cómo te sentís hoy?`
-    : "¡Hola! 🌙 Soy Luna, tu compañera de apoyo emocional. Estoy aquí para escucharte y ayudarte. ¿Cómo te sentís hoy?";
+    ? t('chatbot.welcomeWithName').replace('{name}', userName)
+    : t('chatbot.welcomeWithoutName');
 
   // Cargar mensajes guardados o inicializar con mensaje de bienvenida
   const loadMessages = (): Message[] => {
@@ -716,18 +732,18 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center space-x-2">
             <span className="text-2xl">🌙</span>
-            <h2 className="text-lg text-purple-700 dark:text-purple-300">Luna</h2>
+            <h2 className="text-lg text-purple-700 dark:text-purple-300">{t('chatbot.title')}</h2>
           </div>
           <p className="text-sm text-purple-600 dark:text-purple-200">
-            Tu compañera de apoyo emocional • Siempre aquí para escucharte
+            {t('chatbot.subtitle')}
           </p>
           <div className="flex items-center justify-center space-x-4 text-xs text-purple-500 dark:text-purple-400">
             <div className="flex items-center space-x-1">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span>En línea</span>
+              <span>{t('chatbot.online')}</span>
             </div>
             <span>•</span>
-            <span>{messages.length} mensajes</span>
+            <span>{messages.length} {t('chatbot.messages')}</span>
             {messages.length > 1 && (
               <>
                 <span>•</span>
@@ -736,7 +752,7 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
                   size="sm"
                   className="h-auto p-0 text-xs text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300"
                   onClick={() => {
-                    if (window.confirm('¿Seguro que querés borrar todo el historial de conversación con Luna?')) {
+                    if (window.confirm(t('chatbot.clearChatConfirm'))) {
                       setMessages([{
                         id: 1,
                         text: welcomeMessage,
@@ -747,7 +763,7 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
                     }
                   }}
                 >
-                  Limpiar chat
+                  {t('chatbot.clearChat')}
                 </Button>
               </>
             )}
@@ -807,8 +823,8 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <Card className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-blue-200 dark:border-blue-700">
           <div className="space-y-3">
             <div className="text-center">
-              <p className="text-sm text-blue-700 dark:text-blue-300">¿Cómo te sentís hoy?</p>
-              <p className="text-xs text-blue-600 dark:text-blue-400">Tocá una opción para empezar a conversar</p>
+              <p className="text-sm text-blue-700 dark:text-blue-300">{t('chatbot.howAreYouToday')}</p>
+              <p className="text-xs text-blue-600 dark:text-blue-400">{t('chatbot.tapOptionToStart')}</p>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {quickResponses.map((response, index) => (
@@ -830,7 +846,7 @@ export function SupportChatbot({ isDarkMode }: { isDarkMode?: boolean } = {}) {
       {/* Input Area */}
       <div className="flex space-x-2">
         <Input
-          placeholder="Contame lo que sentís... 💭"
+          placeholder={t('chatbot.placeholder')}
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}

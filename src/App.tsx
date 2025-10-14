@@ -127,11 +127,11 @@ export default function App() {
   const validateRegistration = (): string[] => {
     const errors: string[] = [];
     
-    if (!userData.firstName.trim()) errors.push('El nombre es obligatorio');
-    if (!userData.lastName.trim()) errors.push('El apellido es obligatorio');
+  if (!userData.firstName.trim()) errors.push(t('errors.firstNameRequired'));
+  if (!userData.lastName.trim()) errors.push(t('errors.lastNameRequired'));
     
     if (!userData.birthDate) {
-      errors.push('La fecha de nacimiento es obligatoria');
+      errors.push(t('errors.birthDateRequired'));
     } else {
       const birthDate = new Date(userData.birthDate);
       const today = new Date();
@@ -143,27 +143,27 @@ export default function App() {
       }
       
       if (age < 12) {
-        errors.push('Debes tener al menos 12 años para usar Mental Link');
+        errors.push(t('errors.minAge'));
       }
     }
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!userData.email.trim()) {
-      errors.push('El correo electrónico es obligatorio');
+      errors.push(t('errors.emailRequired'));
     } else if (!emailRegex.test(userData.email)) {
-      errors.push('El correo electrónico no es válido');
+      errors.push(t('errors.emailInvalid'));
     }
     
     if (!userData.emergencyContactRelation.trim()) {
-      errors.push('La relación con el contacto de emergencia es obligatoria');
+      errors.push(t('errors.relationRequired'));
     }
     if (!userData.emergencyContactName.trim()) {
-      errors.push('El nombre del contacto de emergencia es obligatorio');
+      errors.push(t('errors.contactNameRequired'));
     }
     if (!userData.emergencyContactPhone.trim()) {
-      errors.push('El teléfono del contacto de emergencia es obligatorio');
+      errors.push(t('errors.phoneRequired'));
     } else if (userData.emergencyContactPhone.length < 10) {
-      errors.push('El teléfono debe tener al menos 10 dígitos');
+      errors.push(t('errors.phoneDigits'));
     }
     
     return errors;
@@ -248,7 +248,7 @@ export default function App() {
               <h1 className={`text-lg transition-colors duration-300 ${
                 isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
               }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                {isRegistered ? '¡Bienvenido a Mental Link!' : 'Crear cuenta'}
+                  {isRegistered ? t('registration.welcome') : t('registration.createAccount')}
               </h1>
             </div>
           </div>
@@ -268,12 +268,12 @@ export default function App() {
               <h2 className={`text-lg mb-2 transition-colors duration-300 ${
                 isDarkMode ? 'text-green-300' : 'text-green-700'
               }`}>
-                ¡Registro exitoso!
+                  {t('registration.successTitle')}
               </h2>
               <p className={`text-sm transition-colors duration-300 ${
                 isDarkMode ? 'text-green-200' : 'text-green-600'
               }`}>
-                Hola {userData.firstName}, tu cuenta ha sido creada. Redirigiendo a la aplicación...
+                  {t('registration.greeting')} {userData.firstName}, {t('registration.redirect')}
               </p>
             </Card>
           ) : (
@@ -288,7 +288,7 @@ export default function App() {
                     <p className={`text-sm transition-colors duration-300 ${
                       isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                     }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                      Para brindarte la mejor experiencia personalizada, necesitamos algunos datos básicos
+                 {t('registration.intro')}
                     </p>
                   </div>
 
@@ -314,14 +314,14 @@ export default function App() {
                       <Label htmlFor="firstName" className={`transition-colors duration-300 ${
                         isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                       }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                        Nombre *
+                  {t('registration.firstName')}
                       </Label>
                       <Input
                         id="firstName"
                         type="text"
                         value={userData.firstName}
                         onChange={(e) => handleInputChange('firstName', e.target.value)}
-                        placeholder="Tu nombre"
+                        placeholder={t('registration.firstNamePlaceholder')}
                         className={`transition-colors duration-300 ${
                           isDarkMode 
                             ? 'bg-gray-800/50 border-gray-600 text-purple-200 placeholder:text-gray-400' 
@@ -333,14 +333,14 @@ export default function App() {
                       <Label htmlFor="lastName" className={`transition-colors duration-300 ${
                         isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                       }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                        Apellido *
+                  {t('registration.lastName')}
                       </Label>
                       <Input
                         id="lastName"
                         type="text"
                         value={userData.lastName}
                         onChange={(e) => handleInputChange('lastName', e.target.value)}
-                        placeholder="Tu apellido"
+                        placeholder={t('registration.lastNamePlaceholder')}
                         className={`transition-colors duration-300 ${
                           isDarkMode 
                             ? 'bg-gray-800/50 border-gray-600 text-purple-200 placeholder:text-gray-400' 
@@ -355,7 +355,7 @@ export default function App() {
                     <Label htmlFor="birthDate" className={`transition-colors duration-300 ${
                       isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                     }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                      Fecha de nacimiento *
+                 {t('registration.birthDate')}
                     </Label>
                     <Input
                       id="birthDate"
@@ -380,14 +380,14 @@ export default function App() {
                     <Label htmlFor="email" className={`transition-colors duration-300 ${
                       isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                     }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                      Correo electrónico *
+                 {t('registration.email')}
                     </Label>
                     <Input
                       id="email"
                       type="email"
                       value={userData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      placeholder="tu.email@ejemplo.com"
+                      placeholder={t('registration.emailPlaceholder')}
                       className={`transition-colors duration-300 ${
                         isDarkMode 
                           ? 'bg-gray-800/50 border-gray-600 text-purple-200 placeholder:text-gray-400' 
@@ -482,6 +482,7 @@ export default function App() {
                   }`}>
                     <p>
                       🔒 <strong>Tu privacidad es importante:</strong> Esta información se utiliza únicamente para personalizar tu experiencia y garantizar tu seguridad. El contacto de emergencia solo será utilizado en situaciones que requieran intervención de apoyo.
+                        🔒 <strong>{t('registration.privacyBold')}</strong> {t('registration.privacyRest')}
                     </p>
                   </div>
                 </div>
@@ -553,15 +554,15 @@ export default function App() {
                 <h1 className={`text-2xl leading-tight mb-2 transition-colors duration-300 ${
                   isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                 }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                  Conecta con tus emociones,<br />
-                  <span className="font-medium">crece con confianza</span>
+                  {t('landing.taglineLine1')}<br />
+                  <span className="font-medium">{t('landing.taglineLine2')}</span>
                 </h1>
                 
                 {/* Breve explicación */}
                 <p className={`text-base leading-relaxed transition-colors duration-300 ${
                   isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
                 }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                  Mental Link te acompaña en tu bienestar emocional, ayudándote a reconocer cómo te sentís y encontrar equilibrio en tu día a día.
+                  {t('landing.description')}
                 </p>
               </div>
             </div>
@@ -596,22 +597,22 @@ export default function App() {
               <p className={`text-sm leading-relaxed transition-colors duration-300 ${
                 isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
               }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
-                Un espacio seguro donde podés expresarte libremente, descubrir recursos para cuidar tu salud mental y recibir orientación cuando más lo necesites.
+                {t('landing.cardDescription')}
               </p>
               <div className={`flex items-center justify-center space-x-6 text-sm transition-colors duration-300 ${
                 isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'
               }`} style={!isDarkMode ? { color: '#40747a' } : {}}>
                 <div className="text-center">
                   <span className="block text-2xl mb-1">💙</span>
-                  <span>Empatía</span>
+                  <span>{t('landing.pillarEmpathy')}</span>
                 </div>
                 <div className="text-center">
                   <span className="block text-2xl mb-1">🌱</span>
-                  <span>Crecimiento</span>
+                  <span>{t('landing.pillarGrowth')}</span>
                 </div>
                 <div className="text-center">
                   <span className="block text-2xl mb-1">🤝</span>
-                  <span>Apoyo</span>
+                  <span>{t('landing.pillarSupport')}</span>
                 </div>
               </div>
             </div>
@@ -628,7 +629,7 @@ export default function App() {
               }`}
             >
               <UserCheck className="w-5 h-5" />
-              <span>Ingresar / Registrarse</span>
+              <span>{t('cta.enterRegister')}</span>
               <ArrowRight className="w-4 h-4" />
             </Button>
             
@@ -642,7 +643,8 @@ export default function App() {
               }`}
             >
               <Eye className="w-5 h-5" />
-              <span>Explorar como invitado</span>
+              <span>{t('cta.exploreGuest')}</span>
+                <span>{t('cta.exploreGuest')}</span>
             </Button>
           </div>
         </div>
@@ -680,8 +682,8 @@ export default function App() {
           <div className="flex items-center justify-between">
             <div className="flex-shrink-0"><img src={mentalLinkDarkLogo} alt="Mental Link Logo" className="h-28 w-28" /></div>
             <div className="flex-1 text-center px-4">
-              <h1 className={`text-sm leading-tight ${isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'}`}>Conecta con tus emociones,<br /><span className="font-medium">crece con confianza</span></h1>
-              <p className={`text-xs mt-1 ${isDarkMode ? 'text-[#B0E0E6]/70' : 'text-[#5fa3b0]/70'}`}>v1.0.0 BETA</p>
+              <h1 className={`text-sm leading-tight ${isDarkMode ? 'text-[#B0E0E6]' : 'text-[#40747a]'}`}>{t('landing.taglineLine1')}<br /><span className="font-medium">{t('landing.taglineLine2')}</span></h1>
+              <p className={`text-xs mt-1 ${isDarkMode ? 'text-[#B0E0E6]/70' : 'text-[#5fa3b0]/70'}`}>{t('landing.version')}</p>
             </div>
             <div className="flex-shrink-0">
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -695,7 +697,7 @@ export default function App() {
                   </SheetHeader>
                   <div className="mt-6 space-y-2">
                     <Button variant="ghost" className={`w-full justify-start ${activeTab === 'home' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('home'); setIsMenuOpen(false); }}><Home className="w-5 h-5 mr-3" />{t('menu.home')}</Button>
-                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'dashboard' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('dashboard'); setIsMenuOpen(false); }}><BarChart3 className="w-5 h-5 mr-3" />Dashboard</Button>
+                    <Button variant="ghost" className={`w-full justify-start ${activeTab === 'dashboard' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('dashboard'); setIsMenuOpen(false); }}><BarChart3 className="w-5 h-5 mr-3" />{t('menu.dashboard')}</Button>
                     <Button variant="ghost" className={`w-full justify-start ${activeTab === 'chat' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('chat'); setIsMenuOpen(false); }}><MessageCircle className="w-5 h-5 mr-3" />{t('menu.chat')}</Button>
                     <Button variant="ghost" className={`w-full justify-start ${activeTab === 'wellness' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('wellness'); setIsMenuOpen(false); }}><Heart className="w-5 h-5 mr-3" />{t('menu.wellness')}</Button>
                     <Button variant="ghost" className={`w-full justify-start ${activeTab === 'adults' ? (isDarkMode ? 'bg-purple-900/50 text-purple-300' : 'bg-purple-100 text-purple-700') : (isDarkMode ? 'text-gray-300 hover:bg-gray-800' : 'text-gray-700 hover:bg-gray-100')}`} onClick={() => { setActiveTab('adults'); setIsMenuOpen(false); }}><Users className="w-5 h-5 mr-3" />{t('menu.adults')}</Button>
@@ -710,12 +712,12 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="max-w-md mx-auto px-4 py-6">
+        <div className="max-w-md mx-auto px-4 py-6">
         {/* Disclaimer BETA */}
         <Alert className="mb-4 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-amber-200 dark:border-amber-700">
           <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
           <AlertDescription className="text-amber-800 dark:text-amber-200 text-sm">
-            <strong>Versión BETA:</strong> Las notificaciones a adultos de confianza son simuladas. Esta app complementa, no reemplaza, la ayuda profesional.
+            <strong>{t('alert.betaTitle')}</strong> {t('alert.betaBody')}
           </AlertDescription>
         </Alert>
         
@@ -728,7 +730,7 @@ export default function App() {
                   <div className="text-center space-y-3">
                     <div className="flex items-center justify-center space-x-2">
                       <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                      <span className="text-purple-800 dark:text-purple-200">Mensaje para vos</span>
+                      <span className="text-purple-800 dark:text-purple-200">{t('card.messageForYou')}</span>
                       <Heart className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                     </div>
                     <p className="text-purple-800 dark:text-purple-200 leading-relaxed">
@@ -749,7 +751,7 @@ export default function App() {
                         className="w-full bg-blue-600 hover:bg-blue-700 space-x-2"
                       >
                         <MessageCircle className="w-4 h-4" />
-                        <span>Hablar con Luna ahora</span>
+                        <span>{t('chat.speakNow')}</span>
                       </Button>
                     )}
                     

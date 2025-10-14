@@ -301,15 +301,15 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
     return (
       <div className="space-y-6">
         <div className="text-center">
-          <h2 className="text-2xl text-purple-700 dark:text-purple-300 mb-2">Cerrando sesión</h2>
+          <h2 className="text-2xl text-purple-700 dark:text-purple-300 mb-2">{t('settings.account.signingOutTitle')}</h2>
         </div>
         
         <Card className="p-6 bg-purple-50 dark:bg-purple-900/30 border-purple-200 dark:border-purple-700">
           <div className="text-center space-y-4">
             <div className="text-4xl">👋</div>
-            <h3 className="text-purple-800 dark:text-purple-200">¡Hasta pronto!</h3>
+            <h3 className="text-purple-800 dark:text-purple-200">{t('settings.account.goodbyeTitle')}</h3>
             <p className="text-sm text-purple-700 dark:text-purple-300">
-              Esperamos verte de nuevo pronto. Cuidate mucho.
+              {t('settings.account.goodbyeBody')}
             </p>
           </div>
         </Card>
@@ -319,10 +319,10 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
 
   return (
     <div className="space-y-6">
-      <div className="text-center">
-        <h2 className="text-2xl text-purple-700 dark:text-purple-300 mb-2">Configuración</h2>
-  <p className="text-gray-600 dark:text-gray-400">Personaliza tu experiencia</p>
-      </div>
+  <div className="text-center">
+    <h2 className="text-2xl text-purple-700 dark:text-purple-300 mb-2">{t('settings.title')}</h2>
+  <p className="text-gray-600 dark:text-gray-400">{t('settings.subtitle')}</p>
+  </div>
 
       {/* Perfil del usuario */}
       <Card className="p-4 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-slate-800/30 dark:to-slate-700/30 border-purple-200 dark:border-slate-600">
@@ -333,10 +333,10 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
             </div>
             <div className="flex-1">
               <h3 className="text-purple-800 dark:text-slate-200">
-                {userData ? `${userData.firstName} ${userData.lastName}` : 'Usuario Invitado'}
+                {userData ? `${userData.firstName} ${userData.lastName}` : t('settings.guestUser')}
               </h3>
               <p className="text-sm text-purple-600 dark:text-slate-400">
-                {userData ? `${userData.age} años` : 'Modo invitado activo'}
+                {userData ? `${userData.age} años` : t('settings.guestModeActive')}
               </p>
             </div>
           </div>
@@ -356,10 +356,10 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
 
       {/* Apariencia */}
       <Card className="p-4 dark:bg-slate-800/30 dark:border-slate-600">
-        <h3 className="mb-4 flex items-center space-x-2 dark:text-white">
+          <h3 className="mb-4 flex items-center space-x-2 dark:text-white">
           <Palette className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-          <span>Apariencia</span>
-        </h3>
+          <span>{t('settings.appearance.title')}</span>
+          </h3>
         
         <div className="space-y-4">
           <div className="flex items-center justify-between">
@@ -396,13 +396,13 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
             </div>
           )}
           
-          <div className="p-3 rounded-lg bg-blue-50 dark:bg-slate-700/20 border border-blue-200 dark:border-slate-600">
+              <div className="p-3 rounded-lg bg-blue-50 dark:bg-slate-700/20 border border-blue-200 dark:border-slate-600">
             <p className="text-sm text-blue-700 dark:text-slate-300">
               {autoTheme 
-                ? "🌓 El tema cambia automáticamente según la hora del día"
+                ? t('settings.appearance.autoDetail')
                 : isDarkMode 
-                  ? "🌙 Tema oscuro activado - ideal para usar de noche y reducir fatiga visual" 
-                  : "☀️ Tema claro activado - perfecto para el día y mayor contraste"
+                  ? t('settings.appearance.darkDetail')
+                  : t('settings.appearance.lightDetail')
               }
             </p>
           </div>
@@ -413,28 +413,28 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
       <Card className="p-4 dark:bg-slate-800/30 dark:border-slate-600">
         <h3 className="mb-4 flex items-center space-x-2 dark:text-white">
           <Globe className="w-5 h-5 text-green-600 dark:text-green-400" />
-          <span>Idioma y región</span>
+          <span>{t('settings.language.title')}</span>
         </h3>
         
         <div className="space-y-4">
           <div>
             <label className="text-sm text-gray-600 dark:text-gray-400 mb-2 block">
-              {t('settings.languageLabel')}
+              {t('settings.language.languageLabel')}
             </label>
             <Select value={language} onValueChange={handleLanguageChange}>
               <SelectTrigger className="dark:bg-gray-700 dark:border-gray-600">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="es">�� Español (LatAm)</SelectItem>
-                <SelectItem value="en">🇺🇸 English (US)</SelectItem>
+                <SelectItem value="es">{t('settings.language.lang_es')}</SelectItem>
+                <SelectItem value="en">{t('settings.language.lang_en')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           
           <div className="p-3 rounded-lg bg-green-50 dark:bg-slate-700/20 border border-green-200 dark:border-slate-600">
             <p className="text-sm text-green-700 dark:text-slate-300">
-              🌍 {t('settings.languageNote')}
+              🌍 {t('settings.language.languageNote')}
             </p>
           </div>
         </div>
@@ -444,22 +444,22 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
       <Card className="p-4 dark:bg-slate-800/30 dark:border-slate-600">
         <h3 className="mb-4 flex items-center space-x-2 dark:text-white">
           <Bell className="w-5 h-5" />
-          <span>Notificaciones</span>
+          <span>{t('settings.notifications.title')}</span>
         </h3>
         
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span className="dark:text-white">Recordatorios diarios</span>
+            <span className="dark:text-white">{t('settings.notifications.dailyReminders')}</span>
             <Switch 
               checked={notifications}
               onCheckedChange={(checked) => {
                 setNotifications(checked);
-                toast.success(checked ? 'Recordatorios activados' : 'Recordatorios desactivados', { duration: 2000 });
+                toast.success(checked ? t('settings.notifications.enabled') : t('settings.notifications.disabled'), { duration: 2000 });
               }}
             />
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400">
-            Recibí recordatorios suaves para registrar tu estado de ánimo
+            {t('settings.notifications.description')}
           </p>
         </div>
       </Card>
@@ -492,13 +492,13 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
             className="w-full justify-start space-x-3 dark:border-gray-600"
           >
             <Download className="w-5 h-5" />
-            <span>Exportar mis datos</span>
+            <span>{t('settings.data.export')}</span>
             <ChevronRight className="w-4 h-4 ml-auto" />
           </Button>
           
           <Button variant="ghost" className="w-full justify-start space-x-3">
             <HelpCircle className="w-5 h-5" />
-            <span>Ayuda y soporte</span>
+            <span>{t('settings.help.support')}</span>
             <ChevronRight className="w-4 h-4 ml-auto" />
           </Button>
           
@@ -525,15 +525,9 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
                 <span className="text-2xl">🌱</span>
               </div>
               <div className="text-sm leading-relaxed space-y-3 text-purple-800 dark:text-slate-200">
-                <p>
-                  Mental Link es una propuesta tecnológica que busca acompañar a las personas en el cuidado de su salud mental.
-                </p>
-                <p>
-                  Nuestro objetivo es crear una herramienta digital accesible y cercana, que permita identificar emociones, registrar estados de ánimo y generar un puente de comunicación con quienes pueden brindar apoyo.
-                </p>
-                <p>
-                  A través de una aplicación móvil, queremos ofrecer un espacio seguro donde cada persona pueda expresarse, encontrar recursos de ayuda y sentirse acompañada. Creemos que la innovación tecnológica puede ser un motor de cambio positivo para la sociedad.
-                </p>
+                <p>{t('settings.about.project.p1')}</p>
+                <p>{t('settings.about.project.p2')}</p>
+                <p>{t('settings.about.project.p3')}</p>
               </div>
             </div>
           </div>
@@ -545,15 +539,9 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
                 <span className="text-2xl">🚀</span>
               </div>
               <div className="text-sm leading-relaxed space-y-3 text-blue-800 dark:text-slate-200">
-                <p>
-                  Somos un equipo de jóvenes de Trelew, Chubut, estudiantes de la E.S.E.T.P N.º 724 "Presidente Dr. Humberto Illia".
-                </p>
-                <p>
-                  Nos mueve la motivación de aportar soluciones a problemáticas reales que afectan a personas de todas las edades.
-                </p>
-                <p>
-                  Con Mental Link unimos nuestras habilidades en informática, creatividad y compromiso social para desarrollar un proyecto que tenga impacto más allá de nuestra escuela, llegando a comunidades diversas que necesitan nuevas herramientas de apoyo emocional.
-                </p>
+                <p>{t('settings.about.team.p1')}</p>
+                <p>{t('settings.about.team.p2')}</p>
+                <p>{t('settings.about.team.p3')}</p>
               </div>
             </div>
           </div>
@@ -565,15 +553,9 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
                 <span className="text-2xl">💭</span>
               </div>
               <div className="text-sm leading-relaxed space-y-3 text-green-800 dark:text-slate-200">
-                <p>
-                  Hoy en día, miles de personas conviven con estrés, ansiedad, falta de motivación y dificultades para expresar lo que sienten o pedir ayuda.
-                </p>
-                <p>
-                  Al mismo tiempo, los recursos en salud mental suelen ser insuficientes o de difícil acceso, generando una brecha entre la necesidad de apoyo y las soluciones disponibles.
-                </p>
-                <p>
-                  Mental Link nace como respuesta a esa necesidad: una plataforma pensada para acompañar, conectar y dar voz a quienes buscan apoyo emocional en su día a día.
-                </p>
+                <p>{t('settings.about.problem.p1')}</p>
+                <p>{t('settings.about.problem.p2')}</p>
+                <p>{t('settings.about.problem.p3')}</p>
               </div>
             </div>
           </div>
@@ -590,10 +572,10 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
               </div>
               <div className="space-y-2">
                 <h4 className="text-purple-700 dark:text-slate-200">
-                  Una herramienta digital de acompañamiento para jóvenes y adultos
+                  {t('settings.about.values.headline')}
                 </h4>
                 <p className="text-sm text-purple-600 dark:text-slate-300 italic">
-                  "Conecta con tus emociones, crece con confianza."
+                  {t('settings.about.values.tagline')}
                 </p>
               </div>
             </div>
@@ -643,65 +625,63 @@ export function Settings({ isDarkMode, onThemeToggle, onLogout }: SettingsProps)
             <div className="space-y-3">
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    className="w-full space-x-2 text-orange-600 border-orange-200 hover:bg-orange-50 dark:text-orange-400 dark:border-orange-800 dark:hover:bg-orange-900/20"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                    <span>Eliminar mi historial de chat</span>
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent className="dark:bg-gray-900 dark:border-gray-700">
-                  <AlertDialogHeader>
-                    <AlertDialogTitle className="dark:text-white">¿Eliminar historial de chat?</AlertDialogTitle>
-                    <AlertDialogDescription className="dark:text-gray-300">
-                      Esta acción eliminará permanentemente todas las conversaciones con Luna. 
-                      No se puede deshacer.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel className="dark:border-gray-600 dark:text-gray-300">Cancelar</AlertDialogCancel>
-                    <AlertDialogAction 
-                      onClick={() => {
-                        localStorage.removeItem('mental-link-chat-history');
-                        alert('Historial de chat eliminado');
-                      }}
-                      className="bg-orange-600 hover:bg-orange-700"
+                    <Button 
+                      variant="outline" 
+                      className="w-full space-x-2 text-orange-600 border-orange-200 hover:bg-orange-50 dark:text-orange-400 dark:border-orange-800 dark:hover:bg-orange-900/20"
                     >
-                      Sí, eliminar historial
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
+                      <Trash2 className="w-4 h-4" />
+                      <span>{t('settings.account.deleteChatHistory')}</span>
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="dark:bg-gray-900 dark:border-gray-700">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle className="dark:text-white">{t('settings.account.deleteChatTitle')}</AlertDialogTitle>
+                      <AlertDialogDescription className="dark:text-gray-300">
+                        {t('settings.account.deleteChatDesc')}
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel className="dark:border-gray-600 dark:text-gray-300">{t('common.cancel',)}</AlertDialogCancel>
+                      <AlertDialogAction 
+                        onClick={() => {
+                          localStorage.removeItem('mental-link-chat-history');
+                          alert(t('settings.account.deleteChatConfirm'));
+                        }}
+                        className="bg-orange-600 hover:bg-orange-700"
+                      >
+                        {t('settings.account.deleteChatConfirm')}
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
               </AlertDialog>
 
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    className="w-full space-x-2 text-red-600 border-red-200 hover:bg-red-50 dark:text-red-400 dark:border-red-800 dark:hover:bg-red-900/20"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                    <span>Eliminar cuenta</span>
-                  </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent className="dark:bg-gray-900 dark:border-gray-700">
-                  <AlertDialogHeader>
-                    <AlertDialogTitle className="dark:text-white">¿Eliminar cuenta completamente?</AlertDialogTitle>
-                    <AlertDialogDescription className="dark:text-gray-300">
-                      Esta acción eliminará permanentemente tu cuenta, resúmenes diarios y toda la información guardada. 
-                      No se puede deshacer.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel className="dark:border-gray-600 dark:text-gray-300">Cancelar</AlertDialogCancel>
-                    <AlertDialogAction 
-                      onClick={handleLogout}
-                      className="bg-red-600 hover:bg-red-700"
+                    <Button 
+                      variant="outline" 
+                      className="w-full space-x-2 text-red-600 border-red-200 hover:bg-red-50 dark:text-red-400 dark:border-red-800 dark:hover:bg-red-900/20"
                     >
-                      Sí, eliminar cuenta
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
+                      <Trash2 className="w-4 h-4" />
+                      <span>{t('settings.account.deleteAccount')}</span>
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent className="dark:bg-gray-900 dark:border-gray-700">
+                    <AlertDialogHeader>
+                      <AlertDialogTitle className="dark:text-white">{t('settings.account.deleteAccountTitle')}</AlertDialogTitle>
+                      <AlertDialogDescription className="dark:text-gray-300">
+                        {t('settings.account.deleteAccountDesc')}
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel className="dark:border-gray-600 dark:text-gray-300">{t('common.cancel')}</AlertDialogCancel>
+                      <AlertDialogAction 
+                        onClick={handleLogout}
+                        className="bg-red-600 hover:bg-red-700"
+                      >
+                        {t('settings.account.deleteAccountConfirm')}
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
               </AlertDialog>
             </div>
           )}

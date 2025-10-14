@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import t from '../i18n';
 import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { MessageCircle, Heart } from 'lucide-react';
@@ -12,48 +13,7 @@ interface MoodOption {
   showChatInvite: boolean;
 }
 
-const moodOptions: MoodOption[] = [
-  { 
-    emoji: '😊', 
-    label: 'Feliz', 
-    color: 'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:hover:bg-yellow-800/40',
-    message: "¡Qué bueno que te sientas feliz! Disfrutá este momento y recordá que merecés sentirte así. Tu energía positiva puede contagiar a quienes te rodean.",
-    supportMessage: "Si querés compartir tu alegría o hablar sobre lo que te hace sentir bien, Luna está aquí para escucharte.",
-    showChatInvite: false
-  },
-  { 
-    emoji: '😢', 
-    label: 'Triste', 
-    color: 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-800/40',
-    message: "Es normal sentirse triste a veces. Tus emociones son válidas y está bien tomate el tiempo que necesités. Recordá que la tristeza también pasa y que no estás solo en esto.",
-    supportMessage: "Si necesitás desahogarte o simplemente que alguien te escuche, Luna está disponible para acompañarte.",
-    showChatInvite: true
-  },
-  { 
-    emoji: '😰', 
-    label: 'Ansioso', 
-    color: 'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/30 dark:hover:bg-orange-800/40',
-    message: "La ansiedad puede ser abrumadora, pero sos más fuerte de lo que pensás. Respirá profundo y recordá que cada situación difícil es temporal. Vas a poder superarlo.",
-    supportMessage: "Luna puede ayudarte con técnicas de relajación y estrategias para manejar la ansiedad. ¡No dudes en hablar con ella!",
-    showChatInvite: true
-  },
-  { 
-    emoji: '😡', 
-    label: 'Enojado', 
-    color: 'bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-800/40',
-    message: "Sentir enojo es completamente normal. Lo importante es reconocerlo y encontrar formas saludables de expresarlo. Vas a encontrar la calma nuevamente.",
-    supportMessage: "Hablar sobre lo que te molesta puede ayudarte a procesar estos sentimientos. Luna está aquí para escucharte sin juzgarte.",
-    showChatInvite: true
-  },
-  { 
-    emoji: '😌', 
-    label: 'Tranquilo', 
-    color: 'bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:hover:bg-green-800/40',
-    message: "Me alegra saber que te sentís en paz. Esta tranquilidad es un regalo que te das a vos mismo. Aprovechá este momento de calma y bienestar.",
-    supportMessage: "Si querés mantener esta sensación de calma o aprender técnicas de relajación, Luna puede guiarte.",
-    showChatInvite: false
-  },
-];
+// Mood options are built inside the component to ensure translations are loaded at render time
 
 interface MoodSelectorProps {
   onMoodSelect: (mood: MoodOption) => void;
@@ -62,6 +22,49 @@ interface MoodSelectorProps {
 
 export function MoodSelector({ onMoodSelect, onChatNavigate }: MoodSelectorProps) {
   const [selectedMood, setSelectedMood] = useState<MoodOption | null>(null);
+
+  const moodOptions: MoodOption[] = [
+    {
+      emoji: '😊',
+      label: t('moods.happy.label'),
+      color: 'bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-900/30 dark:hover:bg-yellow-800/40',
+      message: t('moods.happy.message'),
+      supportMessage: t('moods.happy.supportMessage'),
+      showChatInvite: false,
+    },
+    {
+      emoji: '😢',
+      label: t('moods.sad.label'),
+      color: 'bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-800/40',
+      message: t('moods.sad.message'),
+      supportMessage: t('moods.sad.supportMessage'),
+      showChatInvite: true,
+    },
+    {
+      emoji: '😰',
+      label: t('moods.anxious.label'),
+      color: 'bg-orange-100 hover:bg-orange-200 dark:bg-orange-900/30 dark:hover:bg-orange-800/40',
+      message: t('moods.anxious.message'),
+      supportMessage: t('moods.anxious.supportMessage'),
+      showChatInvite: true,
+    },
+    {
+      emoji: '😡',
+      label: t('moods.angry.label'),
+      color: 'bg-red-100 hover:bg-red-200 dark:bg-red-900/30 dark:hover:bg-red-800/40',
+      message: t('moods.angry.message'),
+      supportMessage: t('moods.angry.supportMessage'),
+      showChatInvite: true,
+    },
+    {
+      emoji: '😌',
+      label: t('moods.calm.label'),
+      color: 'bg-green-100 hover:bg-green-200 dark:bg-green-900/30 dark:hover:bg-green-800/40',
+      message: t('moods.calm.message'),
+      supportMessage: t('moods.calm.supportMessage'),
+      showChatInvite: false,
+    },
+  ];
 
   const handleMoodSelect = (mood: MoodOption) => {
     setSelectedMood(mood);

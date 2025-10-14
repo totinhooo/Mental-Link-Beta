@@ -5,6 +5,7 @@ import { Progress } from './ui/progress';
 import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
 import { Heart, Brain, Users, Home, Save, CheckCircle } from 'lucide-react';
+import t, { getPersistedLang } from '../i18n';
 
 interface DiagnosisData {
   mood: number;
@@ -32,43 +33,43 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   const questions = [
     {
       key: 'mood' as keyof DiagnosisData,
-      label: '¿Cómo te sientes emocionalmente hoy?',
+      label: t('dailyDiagnosis.questions.mood.label'),
       icon: Heart,
       color: 'text-purple-600 dark:text-purple-400',
-      lowLabel: 'Muy mal',
-      highLabel: 'Excelente'
+      lowLabel: t('dailyDiagnosis.questions.mood.lowLabel'),
+      highLabel: t('dailyDiagnosis.questions.mood.highLabel')
     },
     {
       key: 'energy' as keyof DiagnosisData,
-      label: '¿Cuál es tu nivel de energía?',
+      label: t('dailyDiagnosis.questions.energy.label'),
       icon: Brain,
       color: 'text-blue-600 dark:text-blue-400',
-      lowLabel: 'Sin energía',
-      highLabel: 'Muy activo/a'
+      lowLabel: t('dailyDiagnosis.questions.energy.lowLabel'),
+      highLabel: t('dailyDiagnosis.questions.energy.highLabel')
     },
     {
       key: 'stress' as keyof DiagnosisData,
-      label: '¿Qué tan estresado/a te sientes?',
+      label: t('dailyDiagnosis.questions.stress.label'),
       icon: Brain,
       color: 'text-red-600 dark:text-red-400',
-      lowLabel: 'Muy relajado/a',
-      highLabel: 'Muy estresado/a'
+      lowLabel: t('dailyDiagnosis.questions.stress.lowLabel'),
+      highLabel: t('dailyDiagnosis.questions.stress.highLabel')
     },
     {
       key: 'sleep' as keyof DiagnosisData,
-      label: '¿Cómo fue tu calidad de sueño anoche?',
+      label: t('dailyDiagnosis.questions.sleep.label'),
       icon: Home,
       color: 'text-green-600 dark:text-green-400',
-      lowLabel: 'Muy mal',
-      highLabel: 'Excelente'
+      lowLabel: t('dailyDiagnosis.questions.sleep.lowLabel'),
+      highLabel: t('dailyDiagnosis.questions.sleep.highLabel')
     },
     {
       key: 'social' as keyof DiagnosisData,
-      label: '¿Cómo fueron tus interacciones sociales?',
+      label: t('dailyDiagnosis.questions.social.label'),
       icon: Users,
       color: 'text-orange-600 dark:text-orange-400',
-      lowLabel: 'Difíciles',
-      highLabel: 'Muy positivas'
+      lowLabel: t('dailyDiagnosis.questions.social.lowLabel'),
+      highLabel: t('dailyDiagnosis.questions.social.highLabel')
     }
   ];
 
@@ -97,9 +98,9 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   };
 
   const getScoreLabel = (score: number) => {
-    if (score <= 3) return 'Necesita atención';
-    if (score <= 6) return 'Moderado';
-    return 'Bueno';
+    if (score <= 3) return t('dailyDiagnosis.score.needsAttention');
+    if (score <= 6) return t('dailyDiagnosis.score.moderate');
+    return t('dailyDiagnosis.score.good');
   };
 
   // Funciones específicas para la pregunta de estrés (colores invertidos)
@@ -110,9 +111,9 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
   };
 
   const getStressScoreLabel = (score: number) => {
-    if (score <= 3) return 'Bueno';
-    if (score <= 6) return 'Moderado';
-    return 'Necesita atención';
+    if (score <= 3) return t('dailyDiagnosis.score.good');
+    if (score <= 6) return t('dailyDiagnosis.score.moderate');
+    return t('dailyDiagnosis.score.needsAttention');
   };
 
   if (isSubmitted) {
@@ -121,10 +122,10 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <Card className="p-6 text-center bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 border-green-200 dark:border-green-700">
           <CheckCircle className="w-16 h-16 mx-auto mb-4 text-green-600 dark:text-green-400" />
           <h2 className="text-lg mb-2 text-green-700 dark:text-green-300">
-            ¡Resumen guardado!
+            {t('dailyDiagnosis.header.savedTitle')}
           </h2>
           <p className="text-sm text-green-600 dark:text-green-200">
-            Gracias por tomarte el tiempo de reflexionar sobre tu bienestar. Tu información ha sido registrada para ayudarte a seguir tu progreso.
+            {t('dailyDiagnosis.header.savedBody')}
           </p>
         </Card>
       </div>
@@ -138,13 +139,13 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="text-center space-y-3">
           <span className="text-3xl">📋</span>
           <h1 className="text-lg text-purple-700 dark:text-purple-300">
-            Resumen diario
+            {t('dailyDiagnosis.header.title')}
           </h1>
           <p className="text-sm text-purple-600 dark:text-purple-200">
-            Tómate unos minutos para reflexionar sobre tu día. Esta información te ayudará a entender mejor tus patrones emocionales.
+            {t('dailyDiagnosis.header.description')}
           </p>
           <Badge variant="outline" className="text-xs">
-            {new Date().toLocaleDateString('es-AR', { 
+            {new Date().toLocaleDateString(getPersistedLang() === 'en' ? 'en-US' : 'es-AR', { 
               weekday: 'long', 
               year: 'numeric', 
               month: 'long', 
@@ -206,10 +207,10 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="space-y-3">
           <h3 className="text-sm text-gray-800 dark:text-gray-200 flex items-center space-x-2">
             <span>📝</span>
-            <span>¿Algo más que quieras compartir sobre tu día?</span>
+            <span>{t('dailyDiagnosis.notesTitle')}</span>
           </h3>
           <Textarea
-            placeholder="Escribe aquí cualquier cosa que quieras recordar sobre tu día, tus emociones, eventos importantes, etc..."
+            placeholder={t('dailyDiagnosis.notesPlaceholder')}
             value={currentDiagnosis.notes}
             onChange={(e) => handleNotesChange(e.target.value)}
             className="min-h-[100px] bg-white dark:bg-gray-800/50 border-gray-200 dark:border-gray-600"
@@ -221,7 +222,7 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
       <Card className="p-5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20">
         <div className="space-y-4">
           <h3 className="text-sm text-blue-700 dark:text-blue-300">
-            Resumen de tu día
+            {t('dailyDiagnosis.summaryTitle')}
           </h3>
           
           <div className="grid grid-cols-2 gap-3 text-xs">
@@ -230,7 +231,7 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
               return (
                 <div key={question.key} className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400">
-                    {question.label.split('?')[0]}:
+                    {t(`dailyDiagnosis.questions.${question.key}.summaryLabel`)}:
                   </span>
                   <span className={question.key === 'stress' ? getStressScoreColor(value) : getScoreColor(value)}>
                     {value}/10
@@ -245,7 +246,7 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
             className="w-full h-12 bg-purple-600 hover:bg-purple-700 text-white space-x-2"
           >
             <Save className="w-5 h-5" />
-            <span>Guardar resumen diario</span>
+            <span>{t('dailyDiagnosis.saveButton')}</span>
           </Button>
         </div>
       </Card>
@@ -255,7 +256,7 @@ export function DailyDiagnosis({ isDarkMode }: { isDarkMode?: boolean } = {}) {
         <div className="text-center">
           <span className="text-2xl mb-2 block">🌟</span>
           <p className="text-xs text-green-700 dark:text-green-300">
-            Cada día que dedicas a conocerte mejor es un paso hacia tu bienestar. ¡Qué bueno que estés aquí!
+            {t('dailyDiagnosis.motivation')}
           </p>
         </div>
       </Card>

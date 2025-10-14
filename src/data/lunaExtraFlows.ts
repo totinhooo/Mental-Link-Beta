@@ -1,44 +1,46 @@
+import t from '../i18n';
+
 const extraEmotionFlows: Record<string, any> = {
   motivation: {
-    keywords: ['motiv', 'motiva', 'motivación', 'no tengo ganas'],
+    keywords: [t('chatbot.flows.motivation.keyword1'), t('chatbot.flows.motivation.keyword2'), t('chatbot.flows.motivation.keyword3'), t('chatbot.flows.motivation.keyword4')],
     initial: {
-      text: '¿Querés pasos pequeños o fijar una meta?',
+      text: t('chatbot.flows.motivation.initial.text'),
       options: [
-        { id: 'motivation_small', label: 'Pasos pequeños', action: 'motivation_small' },
-        { id: 'motivation_goal', label: 'Fijar una meta', action: 'motivation_goal' }
+        { id: 'motivation_small', label: t('chatbot.flows.motivation.initial.option1'), action: 'motivation_small' },
+        { id: 'motivation_goal', label: t('chatbot.flows.motivation.initial.option2'), action: 'motivation_goal' }
       ]
     },
     responses: {
-      motivation_small: { text: 'Elegí una tarea de 5 minutos y empezá.' },
-      motivation_goal: { text: 'Perfecto. ¿Cuál sería una meta alcanzable en 1 semana?', followUp: true }
+      motivation_small: { text: t('chatbot.flows.motivation.responses.small') },
+      motivation_goal: { text: t('chatbot.flows.motivation.responses.goal'), followUp: true }
     }
   },
   study: {
-    keywords: ['estud', 'estudiar', 'examen', 'preparar examen', 'estoy estudiando'],
+    keywords: [t('chatbot.flows.study.keyword1'), t('chatbot.flows.study.keyword2'), t('chatbot.flows.study.keyword3'), t('chatbot.flows.study.keyword4'), t('chatbot.flows.study.keyword5')],
     initial: {
-      text: '¿Armar plan o técnicas de foco?',
+      text: t('chatbot.flows.study.initial.text'),
       options: [
-        { id: 'study_plan', label: 'Armar plan', action: 'study_plan' },
-        { id: 'study_focus', label: 'Técnicas de foco', action: 'study_focus' }
+        { id: 'study_plan', label: t('chatbot.flows.study.initial.option1'), action: 'study_plan' },
+        { id: 'study_focus', label: t('chatbot.flows.study.initial.option2'), action: 'study_focus' }
       ]
     },
     responses: {
-      study_plan: { text: 'Ok — pone un bloque de 25 minutos y concentrate en un tema.' },
-      study_focus: { text: 'Probá la técnica Pomodoro: 25m estudio / 5m descanso. ¿Querés que arme un plan rápido?', followUp: true }
+      study_plan: { text: t('chatbot.flows.study.responses.plan') },
+      study_focus: { text: t('chatbot.flows.study.responses.focus'), followUp: true }
     }
   },
   vent: {
-    keywords: ['desahog', 'desahogarme', 'contar', 'necesito hablar', 'me siento mal'],
+    keywords: [t('chatbot.flows.vent.keyword1'), t('chatbot.flows.vent.keyword2'), t('chatbot.flows.vent.keyword3'), t('chatbot.flows.vent.keyword4'), t('chatbot.flows.vent.keyword5')],
     initial: {
-      text: 'Si querés desahogarte, estoy acá para escucharte sin juzgar. ¿Querés empezar contándome brevemente lo que pasó o preferís técnicas para calmarte primero?',
+      text: t('chatbot.flows.vent.initial.text'),
       options: [
-        { id: 'vent_tell', label: 'Contarte lo que pasó', action: 'vent_tell' },
-        { id: 'vent_calm', label: 'Técnicas para calmarme', action: 'vent_calm' }
+        { id: 'vent_tell', label: t('chatbot.flows.vent.initial.option1'), action: 'vent_tell' },
+        { id: 'vent_calm', label: t('chatbot.flows.vent.initial.option2'), action: 'vent_calm' }
       ]
     },
     responses: {
-      vent_tell: { text: 'Estoy escuchando. Contame en tus palabras lo que pasó.', followUp: true },
-      vent_calm: { text: 'Técnica breve: 5 respiraciones profundas (inhalá 4s, retené 2s, exhalá 6s). ¿Querés que te guíe?' }
+      vent_tell: { text: t('chatbot.flows.vent.responses.tell'), followUp: true },
+      vent_calm: { text: t('chatbot.flows.vent.responses.calm') }
     }
   },
   stress: {

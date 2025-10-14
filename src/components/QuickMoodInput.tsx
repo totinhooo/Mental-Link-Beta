@@ -3,6 +3,7 @@ import { Card } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { MessageCircle, Send, Sparkles } from 'lucide-react';
+import { t } from '../i18n';
 
 interface MoodOption {
   emoji: string;
@@ -243,17 +244,17 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
       <div className="space-y-4">
         <div className="flex items-center space-x-2">
           <Sparkles className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-          <h3 className="text-indigo-800 dark:text-indigo-200">¿Cómo te sentís hoy?</h3>
+          <h3 className="text-indigo-800 dark:text-indigo-200">{t('quickMood.title')}</h3>
         </div>
         
         <p className="text-sm text-indigo-700 dark:text-indigo-300">
-          Si ningún emoji representa tu estado, escribí libremente cómo te sentís
+          {t('quickMood.instructions')}
         </p>
 
         {!isVisible ? (
           <div className="space-y-3">
             <Input
-              placeholder="Ej: Me siento estresado por la tarea de matemáticas..."
+              placeholder={t('quickMood.placeholder')}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
@@ -261,15 +262,15 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
             />
             
             <div className="flex space-x-2">
-              <Button 
-                onClick={handleSubmit}
-                disabled={!input.trim()}
-                size="sm"
-                className="bg-indigo-600 hover:bg-indigo-700 space-x-2"
-              >
-                <Send className="w-4 h-4" />
-                <span>Enviar</span>
-              </Button>
+                <Button 
+                  onClick={handleSubmit}
+                  disabled={!input.trim()}
+                  size="sm"
+                  className="bg-indigo-600 hover:bg-indigo-700 space-x-2"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>{t('quickMood.send')}</span>
+                </Button>
             </div>
           </div>
         ) : currentResponse && (
@@ -282,7 +283,7 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
                     <span className="text-sm">{getUrgencyIcon(currentResponse.urgency)}</span>
                   </div>
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Mental Link te entiende:
+                    {t('quickMood.understands')}
                   </span>
                 </div>
                 
@@ -296,7 +297,7 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
             <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-700">
               <div className="space-y-3">
                 <h4 className="text-sm font-medium text-blue-800 dark:text-blue-200">
-                  💡 Técnicas que pueden ayudarte ahora:
+                  {t('quickMood.techniquesTitle')}
                 </h4>
                 
                 <div className="space-y-2">
@@ -314,14 +315,14 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
 
             {/* Botones de acción */}
             <div className="space-y-2">
-              {currentResponse.chatSuggested && (
+                {currentResponse.chatSuggested && (
                 <Button 
                   onClick={onChatNavigate}
                   size="sm"
                   className="w-full bg-purple-600 hover:bg-purple-700 space-x-2"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Hablar con Luna para apoyo personalizado</span>
+                  <span>{t('quickMood.chatInvite')}</span>
                 </Button>
               )}
               
@@ -332,17 +333,17 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
                   size="sm"
                   className="flex-1 dark:border-gray-600 dark:text-gray-300"
                 >
-                  Expresar algo más
+                  {t('quickMood.expressMore')}
                 </Button>
                 
                 {!currentResponse.chatSuggested && (
-                  <Button 
+                    <Button 
                     onClick={onChatNavigate}
                     variant="outline"
                     size="sm"
                     className="flex-1 border-purple-200 text-purple-700 hover:bg-purple-50 dark:border-purple-600 dark:text-purple-300 dark:hover:bg-purple-900/20"
                   >
-                    Chat con Luna
+                    {t('quickMood.chatWithLuna')}
                   </Button>
                 )}
               </div>
@@ -354,7 +355,7 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
                 <div className="text-center space-y-2">
                   <span className="text-lg">🤗</span>
                   <p className="text-sm text-red-700 dark:text-red-300">
-                    <strong>Recordá:</strong> Si necesitás ayuda inmediata, no dudes en contactar a tu adulto de confianza o la línea 144.
+                    <strong>{t('quickMood.rememberBold')}</strong> {t('quickMood.rememberBody')}
                   </p>
                 </div>
               </Card>
@@ -365,15 +366,15 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
         {/* Sugerencias rápidas */}
         {!isVisible && (
           <div className="space-y-3">
-            <p className="text-xs text-indigo-600 dark:text-indigo-400">💭 Ejemplos de expresiones:</p>
+            <p className="text-xs text-indigo-600 dark:text-indigo-400">{t('quickMood.examplesTitle')}</p>
             <div className="grid grid-cols-1 gap-2">
               {[
-                "Me siento estresado por la tarea de matemáticas", 
-                "Estoy nervioso por el examen de mañana", 
-                "Me siento solo en el recreo",
-                "Estoy feliz porque aprobé el parcial",
-                "Tengo problemas en casa con mi familia",
-                "Me siento ansioso sin razón aparente"
+                t('quickMood.examples.example1'),
+                t('quickMood.examples.example2'),
+                t('quickMood.examples.example3'),
+                t('quickMood.examples.example4'),
+                t('quickMood.examples.example5'),
+                t('quickMood.examples.example6')
               ].map((example) => (
                 <Button
                   key={example}
@@ -394,7 +395,7 @@ export function QuickMoodInput({ onMoodSelect, onChatNavigate, isDarkMode }: Qui
             
             <div className="p-3 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border border-indigo-200 dark:border-indigo-700">
               <p className="text-xs text-indigo-700 dark:text-indigo-300 text-center">
-                🌟 <strong>Tip:</strong> Sé específico sobre tu situación. Cuanto más detalles, mejor podré ayudarte.
+                🌟 <strong>{t('quickMood.tipBold')}</strong> {t('quickMood.tipBody')}
               </p>
             </div>
           </div>

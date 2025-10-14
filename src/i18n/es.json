@@ -14,10 +14,497 @@
     "backToHome": "← Volver al inicio"
   },
   "landing": {
-    "description": "Mental Link es tu espacio seguro para expresarte, aprender a manejar tus emociones y encontrar apoyo cuando lo necesites."
+    "title": "Tu bienestar emocional es nuestra prioridad",
+    "cardDescription": "Un espacio seguro donde podés expresarte libremente, descubrir recursos para cuidar tu salud mental y recibir orientación cuando más lo necesites.",
+    "description": "Mental Link te acompaña en tu bienestar emocional, ayudándote a reconocer cómo te sentís y encontrar equilibrio en tu día a día.",
+    "taglineLine1": "Conecta con tus emociones,",
+    "taglineLine2": "crece con confianza",
+    "version": "v1.0.0 BETA",
+    "pillarEmpathy": "Empatía",
+    "pillarGrowth": "Crecimiento",
+    "pillarSupport": "Apoyo"
   },
   "settings": {
-    "languageLabel": "Idioma de la aplicación",
-    "languageNote": "Mental Link se adapta a tu idioma y cultura. Luna también habla en tu idioma preferido."
+    "title": "Configuración",
+    "subtitle": "Personaliza tu experiencia",
+    "guestUser": "Usuario Invitado",
+    "guestModeActive": "Modo invitado activo",
+    "appearance": {
+      "title": "Apariencia",
+      "autoTheme": "Tema automático",
+      "darkMode": "Modo oscuro",
+      "autoActivated": "Tema automático activado",
+      "manualSelected": "Tema manual seleccionado",
+      "darkActivated": "Modo oscuro activado",
+      "lightActivated": "Modo claro activado",
+      "autoDetail": "🌓 El tema cambia automáticamente según la hora del día",
+      "darkDetail": "🌙 Tema oscuro activado - ideal para usar de noche y reducir fatiga visual",
+      "lightDetail": "☀️ Tema claro activado - perfecto para el día y mayor contraste"
+    },
+    "language": {
+      "title": "Idioma y región",
+      "languageLabel": "Idioma de la aplicación",
+      "languageNote": "Mental Link se adapta a tu idioma y cultura. Luna también habla en tu idioma preferido.",
+      "lang_es": "Español (LatAm)",
+      "lang_en": "Inglés (US)"
+    },
+    "notifications": {
+      "title": "Notificaciones",
+      "dailyReminders": "Recordatorios diarios",
+      "description": "Recibí recordatorios suaves para registrar tu estado de ánimo",
+      "enabled": "Recordatorios activados",
+      "disabled": "Recordatorios desactivados"
+    },
+    "data": {
+      "title": "Datos y privacidad",
+      "autoBackup": "Copia de seguridad automática",
+      "export": "Exportar mis datos",
+      "localDataNote": "🔒 Tus datos se guardan localmente en tu dispositivo. Podés exportarlos cuando quieras.",
+      "backupEnabled": "Copia de seguridad activada",
+      "backupDisabled": "Copia de seguridad desactivada",
+      "exporting": "Generando PDF...",
+      "exportSuccess": "¡Datos exportados exitosamente!",
+      "exportError": "Error al exportar datos. Inténtalo de nuevo."
+    },
+    "help": {
+      "support": "Ayuda y soporte"
+    },
+    "about": {
+      "title": "Sobre Nosotros",
+      "shortDescription": "Mental Link es una propuesta tecnológica que busca acompañar a las personas en el cuidado de su salud mental.",
+      "whoWeAre": "Quiénes somos",
+      "project": {
+        "p1": "Mental Link es una propuesta tecnológica que busca acompañar a las personas en el cuidado de su salud mental.",
+        "p2": "Nuestro objetivo es crear una herramienta digital accesible y cercana, que permita identificar emociones, registrar estados de ánimo y generar un puente de comunicación con quienes pueden brindar apoyo.",
+        "p3": "A través de una aplicación móvil, queremos ofrecer un espacio seguro donde cada persona pueda expresarse, encontrar recursos de ayuda y sentirse acompañada. Creemos que la innovación tecnológica puede ser un motor de cambio positivo para la sociedad."
+      },
+      "team": {
+        "p1": "Somos un equipo de jóvenes de Trelew, Chubut, estudiantes de la E.S.E.T.P N.º 724 \"Presidente Dr. Humberto Illia\".",
+        "p2": "Nos mueve la motivación de aportar soluciones a problemáticas reales que afectan a personas de todas las edades.",
+        "p3": "Con Mental Link unimos nuestras habilidades en informática, creatividad y compromiso social para desarrollar un proyecto que tenga impacto más allá de nuestra escuela, llegando a comunidades diversas que necesitan nuevas herramientas de apoyo emocional."
+      },
+      "problem": {
+        "p1": "Hoy en día, miles de personas conviven con estrés, ansiedad, falta de motivación y dificultades para expresar lo que sienten o pedir ayuda.",
+        "p2": "Al mismo tiempo, los recursos en salud mental suelen ser insuficientes o de difícil acceso, generando una brecha entre la necesidad de apoyo y las soluciones disponibles.",
+        "p3": "Mental Link nace como respuesta a esa necesidad: una plataforma pensada para acompañar, conectar y dar voz a quienes buscan apoyo emocional en su día a día."
+      },
+      "values": {
+        "headline": "Una herramienta digital de acompañamiento para jóvenes y adultos",
+        "tagline": "Conecta con tus emociones, crece con confianza."
+      }
+    },
+    "app": {
+      "name": "Mental Link",
+      "versionLabel": "Versión {version}",
+      "version": "1.0.0"
+    },
+    "account": {
+      "title": "Gestión de cuenta",
+      "deleteChatHistory": "Eliminar mi historial de chat",
+      "deleteAccount": "Eliminar cuenta",
+      "deleteChatTitle": "¿Eliminar historial de chat?",
+      "deleteChatDesc": "Esta acción eliminará permanentemente todas las conversaciones con Luna. No se puede deshacer.",
+      "deleteChatConfirm": "Sí, eliminar historial",
+      "deleteAccountTitle": "¿Eliminar cuenta completamente?",
+      "deleteAccountDesc": "Esta acción eliminará permanentemente tu cuenta, resúmenes diarios y toda la información guardada. No se puede deshacer.",
+      "deleteAccountConfirm": "Sí, eliminar cuenta",
+      "logout": "Cerrar sesión",
+      "returnHome": "Volver al inicio",
+      "logoutConfirm": "¿Cerrar sesión?",
+      "logoutDescTrue": "Tu cuenta y datos se mantendrán seguros. Podrás volver a ingresar cuando quieras.",
+      "logoutDescFalse": "Volverás a la pantalla de inicio. Tus datos temporales se perderán."
+    },
+    "signingOutTitle": "Cerrando sesión",
+    "goodbyeTitle": "¡Hasta pronto!",
+    "goodbyeBody": "Esperamos verte de nuevo pronto. Cuidate mucho.",
+    "common": {
+      "cancel": "Cancelar"
+    },
+    "privacy": {
+      "protectedTitle": "Tu privacidad está protegida.",
+      "protectedBody": "Toda la información que compartís es confidencial y se maneja con los más altos estándares de seguridad."
+    }
+  },
+  "onboarding": {
+    "skip": "Saltar tour",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "start": "¡Empezar!",
+    "steps": {
+      "1": {
+        "title": "¡Bienvenido a Mental Link! 🌙",
+        "description": "Tu compañero personal para cuidar tu salud mental y bienestar emocional",
+        "content": "Mental Link te ayuda a registrar tus emociones, recibir apoyo y conectarte con personas de confianza cuando lo necesites."
+      },
+      "2": {
+        "title": "Inicio y Estados de Ánimo 😊",
+        "description": "Expresa cómo te sentís cada día",
+        "content": "Seleccioná emojis o escribí libremente sobre tus emociones. Recibirás mensajes personalizados de apoyo según tu estado."
+      },
+      "3": {
+        "title": "Luna - Tu Chatbot de Apoyo 🌙",
+        "description": "Conversaciones empáticas 24/7",
+        "content": "Luna está siempre disponible para escucharte, ofrecerte técnicas de relajación y guiarte cuando necesites apoyo emocional."
+      },
+      "4": {
+        "title": "Dashboard y Calendario 📊",
+        "description": "Visualiza tu progreso emocional",
+        "content": "Observá patrones en tus emociones con gráficos interactivos y llevá un registro diario en tu calendario personal."
+      },
+      "5": {
+        "title": "Ejercicios de Bienestar 💆",
+        "description": "Técnicas prácticas para tu día a día",
+        "content": "Accedé a ejercicios de respiración, meditación y relajación para manejar ansiedad, estrés y mejorar tu bienestar."
+      },
+      "6": {
+        "title": "Red de Apoyo 👥",
+        "description": "Conectá con adultos de confianza",
+        "content": "Registrá contactos de personas de confianza para recibir apoyo cuando lo necesites. Tu seguridad es nuestra prioridad."
+      }
+    }
+  },
+  "quickMood": {
+    "title": "¿Cómo te sentís hoy?",
+    "instructions": "Si ningún emoji representa tu estado, escribí libremente cómo te sentís",
+    "placeholder": "Ej: Me siento estresado por la tarea de matemáticas...",
+    "send": "Enviar",
+    "understands": "Mental Link te entiende:",
+    "techniquesTitle": "💡 Técnicas que pueden ayudarte ahora:",
+    "chatInvite": "Hablar con Luna para apoyo personalizado",
+    "expressMore": "Expresar algo más",
+    "chatWithLuna": "Chat con Luna",
+    "rememberBold": "Recordá:",
+    "rememberBody": "Si necesitás ayuda inmediata, no dudes en contactar a tu adulto de confianza o la línea 144.",
+    "examplesTitle": "💭 Ejemplos de expresiones:",
+    "examples": {
+      "example1": "Me siento estresado por la tarea de matemáticas",
+      "example2": "Estoy nervioso por el examen de mañana",
+      "example3": "Me siento solo en el recreo",
+      "example4": "Estoy feliz porque aprobé el parcial",
+      "example5": "Tengo problemas en casa con mi familia",
+      "example6": "Me siento ansioso sin razón aparente"
+    },
+    "tipBold": "Tip:",
+    "tipBody": "Sé específico sobre tu situación. Cuanto más detalles, mejor podré ayudarte."
+  },
+  "registration": {
+    "createAccount": "Crear cuenta",
+    "welcome": "¡Bienvenido a Mental Link!",
+    "successTitle": "¡Registro exitoso!",
+    "greeting": "Hola",
+    "redirect": "tu cuenta ha sido creada. Redirigiendo a la aplicación...",
+    "intro": "Para brindarte la mejor experiencia personalizada, necesitamos algunos datos básicos",
+    "firstName": "Nombre *",
+    "lastName": "Apellido *",
+    "birthDate": "Fecha de nacimiento *",
+    "email": "Correo electrónico *",
+    "firstNamePlaceholder": "Tu nombre",
+    "lastNamePlaceholder": "Tu apellido",
+    "emailPlaceholder": "tu.email@ejemplo.com",
+    "privacyBold": "Tu privacidad es importante:",
+    "privacyRest": "Esta información se utiliza únicamente para personalizar tu experiencia y garantizar tu seguridad. El contacto de emergencia solo será utilizado en situaciones que requieran intervención."
+  },
+  "cta": {
+    "exploreGuest": "Explorar como invitado",
+    "enterRegister": "Ingresar / Registrarse"
+  },
+  "errors": {
+    "relationRequired": "La relación con el contacto de emergencia es obligatoria",
+    "contactNameRequired": "El nombre del contacto de emergencia es obligatorio",
+    "phoneRequired": "El teléfono del contacto de emergencia es obligatorio",
+    "firstNameRequired": "El nombre es obligatorio",
+    "lastNameRequired": "El apellido es obligatorio",
+    "birthDateRequired": "La fecha de nacimiento es obligatoria",
+    "minAge": "Debes tener al menos 12 años para usar Mental Link",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "El correo electrónico no es válido",
+    "phoneDigits": "El teléfono debe tener al menos 10 dígitos"
+  }
+  ,
+  "alert": {
+    "betaTitle": "Versión BETA:",
+    "betaBody": "Las notificaciones a adultos de confianza son simuladas. Esta app complementa, no reemplaza, la ayuda profesional."
+  },
+  "card": {
+    "messageForYou": "Mensaje para vos"
+  },
+  "moods": {
+    "happy": {
+      "label": "Feliz",
+      "message": "¡Qué bueno que te sientas feliz! Disfrutá este momento y recordá que merecés sentirte así. Tu energía positiva puede contagiar a quienes te rodean.",
+      "supportMessage": "Si querés compartir tu alegría o hablar sobre lo que te hace sentir bien, Luna está aquí para escucharte."
+    },
+    "sad": {
+      "label": "Triste",
+      "message": "Es normal sentirse triste a veces. Tus emociones son válidas y está bien tomarte el tiempo que necesités. Recordá que la tristeza también pasa y que no estás solo en esto.",
+      "supportMessage": "Si necesitás desahogarte o simplemente que alguien te escuche, Luna está disponible para acompañarte."
+    },
+    "anxious": {
+      "label": "Ansioso",
+      "message": "La ansiedad puede ser abrumadora, pero sos más fuerte de lo que pensás. Respirá profundo y recordá que cada situación difícil es temporal. Vas a poder superarlo.",
+      "supportMessage": "Luna puede ayudarte con técnicas de relajación y estrategias para manejar la ansiedad. ¡No dudes en hablar con ella!"
+    },
+    "angry": {
+      "label": "Enojado",
+      "message": "Sentir enojo es completamente normal. Lo importante es reconocerlo y encontrar formas saludables de expresarlo. Vas a encontrar la calma nuevamente.",
+      "supportMessage": "Hablar sobre lo que te molesta puede ayudarte a procesar estos sentimientos. Luna está aquí para escucharte sin juzgarte."
+    },
+    "calm": {
+      "label": "Tranquilo",
+      "message": "Me alegra saber que te sentís en paz. Esta tranquilidad es un regalo que te das a vos mismo. Aprovechá este momento de calma y bienestar.",
+      "supportMessage": "Si querés mantener esta sensación de calma o aprender técnicas de relajación, Luna puede guiarte."
+    }
+  },
+  "moodSelector": {
+    "title": "¿Cómo te sentís hoy?",
+    "subtitle": "Tocá el emoji que mejor represente tu estado de ánimo",
+    "chatNow": "Hablar con Luna ahora",
+    "chat": "Charlá con Luna"
+  },
+  "chat": {
+    "speakNow": "Hablar con Luna ahora"
+  },
+  "chatbot": {
+    "quickResponses": {
+      "help": "🆘 Necesito ayuda ahora",
+      "anxious": "😰 Me siento ansioso/a",
+      "sad": "😔 Estoy triste hoy",
+      "vent": "💭 Quiero desahogarme",
+      "motivation": "💪 Necesito motivación",
+      "relax": "😌 Quiero relajarme"
+    },
+    "keywords": {
+      "notWorking1": "no funciona", "notWorking2": "no me funciona", "notWorking3": "no está funcionando",
+      "notWorking4": "sigo igual", "notWorking5": "sigo ansioso", "notWorking6": "sigo ansiosa",
+      "notWorking7": "no ayuda", "notWorking8": "no sirve", "notWorking9": "peor",
+      "notWorking10": "nada funciona", "notWorking11": "todo es inútil", "notWorking12": "es inútil",
+      "professionalHelp1": "necesito más ayuda", "professionalHelp2": "necesito ayuda profesional",
+      "professionalHelp3": "quiero hablar con alguien", "professionalHelp4": "nada me ayuda",
+      "professionalHelp5": "todo falla", "professionalHelp6": "no puedo más",
+      "breakup1": "me dejó", "breakup2": "me dejo", "breakup3": "terminamos", "breakup4": "rompimos",
+      "breakup5": "ruptura", "breakup6": "separación", "breakup7": "mi novia", "breakup8": "mi novio",
+      "breakup9": "mi pareja", "breakup10": "mi ex", "breakup11": "enamorado", "breakup12": "enamorada",
+      "breakup13": "infidelidad", "breakup14": "engañó", "breakup15": "engaño", "breakup16": "traición",
+      "breakup17": "ya no me quiere", "breakup18": "me fue infiel", "breakup19": "acabamos",
+      "breakup20": "corte", "breakup21": "termino", "breakup22": "terminó", "breakup23": "terminó"
+    },
+    "title": "Luna",
+    "subtitle": "Tu compañera de apoyo emocional • Siempre aquí para escucharte",
+    "online": "En línea",
+    "messages": "mensajes",
+    "clearChat": "Limpiar chat",
+    "clearChatConfirm": "¿Seguro que querés borrar todo el historial de conversación con Luna?",
+    "placeholder": "Contame lo que sentís... 💭",
+    "howAreYouToday": "¿Cómo te sentís hoy?",
+    "tapOptionToStart": "Tocá una opción para empezar a conversar",
+    "welcomeWithName": "¡Hola {name}! 🌙 Soy Luna, tu compañera de apoyo emocional. Me alegra verte de nuevo. ¿Cómo te sentís hoy?",
+    "welcomeWithoutName": "¡Hola! 🌙 Soy Luna, tu compañera de apoyo emocional. Estoy aquí para escucharte y ayudarte. ¿Cómo te sentís hoy?",
+    "flows": {
+      "motivation": {
+        "keyword1": "motiv", "keyword2": "motiva", "keyword3": "motivación", "keyword4": "no tengo ganas",
+        "initial": {
+          "text": "¿Querés pasos pequeños o fijar una meta?",
+          "option1": "Pasos pequeños",
+          "option2": "Fijar una meta"
+        },
+        "responses": {
+          "small": "Elegí una tarea de 5 minutos y empezá.",
+          "goal": "Perfecto. ¿Cuál sería una meta alcanzable en 1 semana?"
+        }
+      },
+      "study": {
+        "keyword1": "estud", "keyword2": "estudiar", "keyword3": "examen", "keyword4": "preparar examen", "keyword5": "estoy estudiando",
+        "initial": {
+          "text": "¿Armar plan o técnicas de foco?",
+          "option1": "Armar plan",
+          "option2": "Técnicas de foco"
+        },
+        "responses": {
+          "plan": "Ok — pone un bloque de 25 minutos y concentrate en un tema.",
+          "focus": "Probá la técnica Pomodoro: 25m estudio / 5m descanso. ¿Querés que arme un plan rápido?"
+        }
+      },
+      "vent": {
+        "keyword1": "desahog", "keyword2": "desahogarme", "keyword3": "contar", "keyword4": "necesito hablar", "keyword5": "me siento mal",
+        "initial": {
+          "text": "Si querés desahogarte, estoy acá para escucharte sin juzgar. ¿Querés empezar contándome brevemente lo que pasó o preferís técnicas para calmarte primero?",
+          "option1": "Contarte lo que pasó",
+          "option2": "Técnicas para calmarme"
+        },
+        "responses": {
+          "tell": "Estoy escuchando. Contame en tus palabras lo que pasó.",
+          "calm": "Técnica breve: 5 respiraciones profundas (inhalá 4s, retené 2s, exhalá 6s). ¿Querés que te guíe?"
+        }
+      }
+    }
+  },
+  "emotionalCalendar": {
+    "title": "Calendario emocional",
+    "description": "Visualiza tu progreso emocional día a día y descubre patrones en tu bienestar.",
+    "monthAverage": "Promedio del mes",
+    "avg": {
+      "mood": "Estado de ánimo",
+      "energy": "Energía",
+      "stress": "Estrés"
+    },
+    "legend": {
+      "hard": "Día difícil",
+      "normal": "Día normal",
+      "good": "Buen día"
+    },
+    "dayDetails": "Detalles del día",
+    "dayNotes": "Notas del día:",
+    "empty": {
+      "title": "Aún no tienes registros",
+      "description": "Completa tu primer resumen diario para comenzar a ver tu progreso emocional en el calendario."
+    }
+  },
+  "trustedAdult": {
+    "title": "Pedir Ayuda",
+    "subtitle": "Conectate con un adulto de confianza",
+    "emergencyLineLabel": "Si es una emergencia, llamá inmediatamente:",
+    "emergencyNumber": "135",
+    "whoToTalk": "¿Con quién querés hablar?",
+    "family": "Familia",
+    "schoolCounselor": "Orientador Escolar",
+    "role": {
+      "tutor": "Tutora",
+      "familyContact": "Contacto familiar",
+      "psychopedagogue": "Psicopedagogo"
+    },
+    "availability": {
+      "available": "Disponible",
+      "always": "Siempre disponible",
+      "week": "Lun-Vie 9-17hs"
+    },
+    "howUrgent": "¿Qué tan urgente es?",
+    "urgency": {
+      "low": "No es urgente",
+      "medium": "Necesito hablar pronto",
+      "high": "Es urgente"
+    },
+    "writeMessage": "Escribí tu mensaje",
+    "messagePlaceholder": "Contale a tu adulto de confianza cómo te sentís o qué necesitás...",
+    "sendMessagePrefix": "Enviar mensaje a",
+    "sent": {
+      "title": "Mensaje Enviado",
+      "subtitle": "Tu mensaje fue enviado correctamente",
+      "contactSoon": "recibirá tu mensaje y se pondrá en contacto contigo pronto."
+    },
+    "priority": "Prioridad",
+    "supportReminder": {
+      "line1": "Recordá que siempre hay alguien dispuesto a escucharte y ayudarte.",
+      "line2": "No estás solo en esto."
+    },
+    "privacy": {
+      "title": "Tu privacidad es importante",
+      "body1": "Todos los mensajes son privados y confidenciales.",
+      "body2": "Solo la persona que elijas recibirá tu mensaje."
+    }
+  },
+  "teamContact": {
+    "title": "Contacta con nuestro equipo",
+    "subtitle": "Somos estudiantes comprometidos con el bienestar emocional. ¡Queremos escucharte!",
+    "whoWeAre": {
+      "title": "Quiénes somos",
+      "p1_pre": "Somos un grupo de estudiantes de la",
+      "p1_post": "de Trelew, Chubut, Argentina.",
+      "p2": "Nuestro proyecto nace de la pasión por la tecnología y el compromiso social. Creemos que la innovación puede ser una herramienta poderosa para mejorar la salud mental de nuestra comunidad.",
+      "p3": "Mental Link es más que una aplicación: es nuestro aporte para crear un mundo donde todos puedan expresar sus emociones y encontrar apoyo cuando lo necesiten."
+    },
+    "location": "Trelew, Chubut - Argentina 🇦🇷",
+    "contactWays": {
+      "title": "¿Cómo puedes contactarnos?"
+    },
+    "instagram": {
+      "title": "Instagram oficial",
+      "description": "Síguenos para ver actualizaciones, tips de bienestar y conocer más sobre nuestro proyecto",
+      "handle": "@mentallink._"
+    },
+    "email": {
+      "title": "Correo electrónico",
+      "description": "Para consultas, sugerencias o si quieres colaborar con nuestro proyecto",
+      "address": "mentallink.team@gmail.com",
+      "mailto": "mailto:mentallink.team@gmail.com?subject=Contacto desde Mental Link App"
+    },
+    "school": {
+      "title": "Nuestra institución",
+      "name": "E.S.E.T.P N.º 724 \"Presidente Dr. Humberto Illia\"",
+      "location": "Trelew, Chubut, Argentina"
+    },
+    "commitment": {
+      "title": "Nuestro compromiso contigo",
+      "intro": "Sabemos que hablar de salud mental requiere confianza y respeto. Por eso, nos comprometemos a:",
+      "listen": "Escuchar sin juzgar",
+      "privacy": "Respetar tu privacidad",
+      "support": "Ofrecer apoyo genuino",
+      "grow": "Crecer juntos"
+    },
+    "collab": {
+      "title": "¿Quieres colaborar con Mental Link?",
+      "p1": "Si eres profesional de la salud mental, educador, o simplemente alguien que quiere aportar al proyecto, ¡nos encantaría conocerte!",
+      "healthProfessionals": "Profesionales de salud",
+      "educators": "Educadores",
+      "developers": "Desarrolladores",
+      "designers": "Diseñadores"
+    },
+    "values": {
+      "innovation": "Innovación",
+      "collaboration": "Colaboración",
+      "empathy": "Empatía"
+    },
+    "footer": {
+      "madeWith": "Hecho con 💙 por estudiantes de Trelew para el mundo"
+    }
+  },
+  "dailyDiagnosis": {
+    "header": {
+      "title": "Resumen diario",
+      "description": "Tómate unos minutos para reflexionar sobre tu día. Esta información te ayudará a entender mejor tus patrones emocionales.",
+      "savedTitle": "¡Resumen guardado!",
+      "savedBody": "Gracias por tomarte el tiempo de reflexionar sobre tu bienestar. Tu información ha sido registrada para ayudarte a seguir tu progreso."
+    },
+    "questions": {
+      "mood": {
+        "label": "¿Cómo te sientes emocionalmente hoy?",
+        "lowLabel": "Muy mal",
+        "highLabel": "Excelente",
+        "summaryLabel": "Estado emocional"
+      },
+      "energy": {
+        "label": "¿Cuál es tu nivel de energía?",
+        "lowLabel": "Sin energía",
+        "highLabel": "Muy activo/a",
+        "summaryLabel": "Energía"
+      },
+      "stress": {
+        "label": "¿Qué tan estresado/a te sientes?",
+        "lowLabel": "Muy relajado/a",
+        "highLabel": "Muy estresado/a",
+        "summaryLabel": "Estrés"
+      },
+      "sleep": {
+        "label": "¿Cómo fue tu calidad de sueño anoche?",
+        "lowLabel": "Muy mal",
+        "highLabel": "Excelente",
+        "summaryLabel": "Calidad de sueño"
+      },
+      "social": {
+        "label": "¿Cómo fueron tus interacciones sociales?",
+        "lowLabel": "Difíciles",
+        "highLabel": "Muy positivas",
+        "summaryLabel": "Interacciones sociales"
+      }
+    },
+    "score": {
+      "needsAttention": "Necesita atención",
+      "moderate": "Moderado",
+      "good": "Bueno"
+    },
+    "notesTitle": "¿Algo más que quieras compartir sobre tu día?",
+    "notesPlaceholder": "Escribe aquí cualquier cosa que quieras recordar sobre tu día, tus emociones, eventos importantes, etc...",
+    "summaryTitle": "Resumen de tu día",
+    "saveButton": "Guardar resumen diario",
+    "motivation": "Cada día que dedicas a conocerte mejor es un paso hacia tu bienestar. ¡Qué bueno que estés aquí!"
   }
 }
