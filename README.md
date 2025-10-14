@@ -28,7 +28,7 @@ El prototipo combina un chatbot de apoyo empático, registro de emociones, ejerc
 
 | Característica | Descripción |
 | :--- | :--- |
-| **Registro de Emociones** | Pantalla simple con íconos para elegir el estado de ánimo. Generación de un historial y gráfico de estados emocionales semanal/mensual. |
+| **Registro de Emociones** | Generación de un historial y gráfico de estados emocionales semanal/mensual. |
 | **Chatbot de Apoyo** | Interfaz de chat minimalista con mensajes de contención basados en psicología positiva. Ofrece consejos rápidos de relajación y motivación. |
 | **Ejercicios y Sugerencias** | Tarjetas deslizable con tips breves de autocuidado: respiración consciente, técnicas de concentración, relajación muscular y frases motivacionales. |
 | **Conexión con Adultos** | Flujo simple para enviar un mensaje o alerta a un tutor/docente/familiar de confianza, fomentando el apoyo en el mundo real. |
@@ -38,7 +38,7 @@ El prototipo combina un chatbot de apoyo empático, registro de emociones, ejerc
 
 ## 🛠️ Tecnologías Utilizadas
 
-Este prototipo fue inicialmente desarrollado en **React Web** y está siendo migrado a **React Native (Expo)** para su despliegue móvil.
+Este prototipo fue inicialmente desarrollado en **React Web** y a futuro se espera migrarlo a **React Native (Expo)** para su despliegue móvil.
 
 * **React Web (Original):** Framework inicial de desarrollo.
 * **React Native / Expo:** Objetivo de la migración para desarrollo móvil multiplataforma.
@@ -56,7 +56,7 @@ Para correr este proyecto de manera local, sigue los siguientes pasos:
 
 * Node.js (v18+)
 * Yarn o NPM
-* Aplicación **Expo Go** instalada en tu dispositivo móvil.
+
 
 ### Pasos
 
@@ -74,9 +74,8 @@ Para correr este proyecto de manera local, sigue los siguientes pasos:
 
 3.  **Iniciar el Servidor de Desarrollo:**
     ```bash
-    npx expo start --clear
+    npm run dev
     ```
-    Escanea el código QR en tu terminal con la aplicación **Expo Go** para ver el prototipo en tu teléfono.
 
 ---
 
