@@ -7,7 +7,7 @@ Destinada a #solvefortomorrow / Samsung
 
 ## 📌 Descripción General
 
-**Mental Link** es un proyecto educativo y tecnológico enfocado en brindar apoyo emocional y acompañamiento en salud mental a estudiantes de secundaria (12 a 18 años).
+**Mental Link** es un proyecto educativo y tecnológico enfocado en brindar apoyo emocional y acompañamiento en salud mental a jovenes y adultos (+12).
 
 Nacido como iniciativa de alumnos de la **E.S.E.T.P N°724 de Trelew, Chubut, Argentina**, la aplicación surge de la necesidad de ofrecer herramientas accesibles y un entorno seguro frente a problemáticas frecuentes como la ansiedad, el estrés académico y la dificultad para expresar emociones.
 
